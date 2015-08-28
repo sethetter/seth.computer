@@ -9,7 +9,7 @@ title:               sethetter.com
 tagline:             'Code, web and Wichita'
 description:         'Stuff by Seth'
 url:                 http://sethetter.com
-baseurl:             ''
+baseurl:             'http://sethetter.com'
 paginate:            5
 
 # About/contact
