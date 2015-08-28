@@ -12,4 +12,5 @@ I think coding is pretty cool, and Wichita too.
 ### This website was..
 
 * Built using [Jekyll](https://jekyllrb.com) and the [Lanyon theme](https://github.com/poole/lanyon).
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
+* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com).
+* You can view the source for it on [GitHub](https://github.com/sethetter/sethetter.com) as well.
