@@ -7,9 +7,8 @@ relative_permalinks: true
 # Setup
 title:               sethetter.com
 tagline:             'Code, web and Wichita'
-description:         'Stuff by Seth'
+#description:         ''
 url:                 http://sethetter.com
-baseurl:             'http://sethetter.com'
 paginate:            5
 
 # About/contact

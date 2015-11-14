@@ -1,3 +1,9 @@
 .posts .post {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+}
+
+.post-date {
+  display: inline !important;
+  margin: 0;
+  font-size: 0.8em;
 }

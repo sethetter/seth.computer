@@ -3,17 +3,28 @@ layout: default
 title: Home
 ---
 
+<h1>Hi, I'm Seth</h1>
+
+<p class="lead">I am a web application developer with a huge passion for
+community, open government, and civic involvement.</p>
+
+<p>For more info, visit the <a href="/about">about page</a>.</p>
+
+<hr>
+
+<h1>Recent Posts</h1>
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
-    <h2 class="post-title">
+    <h3 class="post-title">
       <!--<a href="{{ site.baseurl }}/{{ post.url }}">-->
       <a href="{{ post.url }}">
         {{ post.title }}
       </a>
-    </h2>
+      -
+      <span class="post-date">{{ post.date | date_to_string }}</span>
+    </h3>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
 
   </div>
 
