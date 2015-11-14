@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I'm going to work for OpenGov!
+title: I'm going to work for The OpenGov Foundation!
 ---
 
 Ever since I have been a developer and have known about the wonderful world of
