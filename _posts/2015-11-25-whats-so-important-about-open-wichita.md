@@ -4,7 +4,7 @@ title: What's so important about Open Wichita?
 ---
 
 If you're not familiar with Open Wichita, my first suggestion would be to check
-out our website at (openwichita.com)[http://openwichita.com]. In a nutshell,
+out our website at [openwichita.com](http://openwichita.com). In a nutshell,
 Open Wichita is a *civic hacking* initiative.
 
 It is a group of volunteers that aim to improve the city and community around
