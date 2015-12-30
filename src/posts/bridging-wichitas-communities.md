@@ -1,6 +1,9 @@
 ---
-layout: post
+collection: posts
+layout: post.html
 title: Bridging Wichita's communities
+url: bridging-wichitas-communities
+date: 2015-12-29
 ---
 
 It's been said on numerous occasions that there are too many uncoordinated

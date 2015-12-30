@@ -1,6 +1,9 @@
 ---
-layout: post
+collection: posts
+layout: post.html
 title: What's so important about Open Wichita?
+url: whats-so-important-about-open-wichita
+date: 2015-11-25
 ---
 
 If you're not familiar with Open Wichita, my first suggestion would be to check

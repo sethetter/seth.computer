@@ -1,6 +1,9 @@
 ---
-layout: post
+collection: posts
+layout: post.html
 title: I'm going to work for The OpenGov Foundation!
+url: going-to-work-for-opengov-foundation
+date: 2015-11-14
 ---
 
 Ever since I have been a developer and have known about the wonderful world of

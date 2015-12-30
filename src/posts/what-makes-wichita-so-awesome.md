@@ -1,6 +1,9 @@
 ---
-layout: post
+collection: posts
+layout: post.html
 title: What makes Wichita so awesome?
+url: what-makes-wichita-so-awesome
+date: 2015-04-26
 ---
 
 Good question. I think there are a lot of people in Wichita who would argue

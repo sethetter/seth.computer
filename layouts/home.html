@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+  {{ contents | safe }}
+
+  <hr>
+
+  <h1>Recent Posts</h1>
+  <div class="posts">
+    {% for post in collections.posts %}
+    <div class="post">
+      <h3 class="post-title">
+        <a href="/posts/{{ post.url }}">
+          {{ post.title }}
+        </a>
+        -
+        <span class="post-date">{{ post.date | date('d F Y') }}</span>
+      </h3>
+
+
+    </div>
+
+    {% endfor %}
+  </div>
+{% endblock %}

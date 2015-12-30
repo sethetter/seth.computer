@@ -1,6 +1,9 @@
 ---
-layout: post
+collection: posts
+layout: post.html
 title: Small components, or large frameworks?
+url: small-components-or-large-frameworks
+date: 2015-06-25
 ---
 
 This is a hot topic these days, and the JavaScript world is definitely siding
