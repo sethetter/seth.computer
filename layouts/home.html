@@ -10,11 +10,11 @@
     {% for post in collections.posts %}
     <div class="post">
       <h3 class="post-title">
-        <a href="/posts/{{ post.url }}">
+        <a href="/{{ moment(post.date).add(1, 'day').format('YYYY/MM/DD') }}/{{ post.url }}">
           {{ post.title }}
         </a>
         -
-        <span class="post-date">{{ post.date | date('d F Y') }}</span>
+        <span class="post-date">{{ moment(post.date).add(1, 'day').format('D MMM YYYY') }}</span>
       </h3>
 
 

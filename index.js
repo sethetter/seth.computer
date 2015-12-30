@@ -1,5 +1,6 @@
 var Metalsmith = require('metalsmith');
 
+var moment = require('moment');
 var define = require('metalsmith-define');
 var drafts = require('metalsmith-drafts');
 var markdown = require('metalsmith-markdown');
@@ -13,7 +14,8 @@ Metalsmith(__dirname)
   site: {
     title: 'sethetter.com',
     tagline: 'Code, community and Wichita, KS'
-  }
+  },
+  moment: moment
 }))
 .use(collections({
   posts: {
@@ -30,7 +32,7 @@ Metalsmith(__dirname)
 .use(permalinks({
   linksets: [{
     match: { collection: 'posts' },
-    pattern: 'posts/:url'
+    pattern: ':date/:url'
   }]
 }))
 .build(function(err) {
