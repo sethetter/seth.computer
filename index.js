@@ -7,13 +7,16 @@ var markdown = require('metalsmith-markdown');
 var layouts = require('metalsmith-layouts');
 var permalinks = require('metalsmith-permalinks');
 var collections = require('metalsmith-collections');
+var feed = require('metalsmith-feed');
 
 Metalsmith(__dirname)
 .destination('./_site')
 .use(define({
   site: {
     title: 'sethetter.com',
-    tagline: 'Code, community and Wichita, KS'
+    tagline: 'Code, community and Wichita, KS',
+    author: 'Seth Etter',
+    url: 'sethetter.com'
   },
   moment: moment
 }))
@@ -34,6 +37,10 @@ Metalsmith(__dirname)
     match: { collection: 'posts' },
     pattern: ':date/:url'
   }]
+}))
+.use(feed({
+  collection: 'posts',
+  destination: 'atom.xml'
 }))
 .build(function(err) {
   if (err) throw err;
