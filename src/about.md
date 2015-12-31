@@ -14,7 +14,7 @@ others to do the same.
 
 ### This website was..
 
-* Built using [Jekyll](jekyll) and the [Lanyon theme](lanyon).
+* Built using [Metalsmith](jekyll) and the [Lanyon theme](lanyon) for Jekyll.
 * Developed on GitHub and hosted for free on [GitHub Pages](gh-pages).
 * You can view the source for it on [GitHub](site-source) as well.
 

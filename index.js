@@ -18,6 +18,7 @@ Metalsmith(__dirname)
     author: 'Seth Etter',
     url: 'sethetter.com'
   },
+  year: moment().format('YYYY'),
   moment: moment
 }))
 .use(collections({
