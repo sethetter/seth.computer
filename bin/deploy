@@ -5,3 +5,4 @@ cp -r _site/* .
 git add .
 git commit -a -m "Site update"
 git push origin gh-pages
+git checkout master

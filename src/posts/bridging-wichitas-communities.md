@@ -2,7 +2,8 @@
 collection: posts
 layout: post.html
 title: Bridging Wichita's communities
-url: bridging-wichitas-communities
+path: bridging-wichitas-communities
+url: 2015/12/29/bridging-wichitas-communities
 date: 2015-12-29
 ---
 

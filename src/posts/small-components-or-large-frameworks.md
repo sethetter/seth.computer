@@ -2,7 +2,8 @@
 collection: posts
 layout: post.html
 title: Small components, or large frameworks?
-url: small-components-or-large-frameworks
+path: small-components-or-large-frameworks
+url: 2015/06/25/small-components-or-large-frameworks
 date: 2015-06-25
 ---
 

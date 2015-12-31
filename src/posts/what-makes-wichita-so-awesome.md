@@ -2,7 +2,8 @@
 collection: posts
 layout: post.html
 title: What makes Wichita so awesome?
-url: what-makes-wichita-so-awesome
+path: what-makes-wichita-so-awesome
+url: 2015/04/26/what-makes-wichita-so-awesome
 date: 2015-04-26
 ---
 

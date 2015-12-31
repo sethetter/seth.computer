@@ -2,7 +2,8 @@
 collection: posts
 layout: post.html
 title: I switched to Metalsmith, for no good reason
-url: i-switched-to-metalsmith-for-no-good-reason
+path: i-switched-to-metalsmith-for-no-good-reason
+url: 2015/12/30/i-switched-to-metalsmith-for-no-good-reason
 date: 2015-12-30
 ---
 

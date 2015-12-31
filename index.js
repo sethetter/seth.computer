@@ -36,7 +36,7 @@ Metalsmith(__dirname)
 .use(permalinks({
   linksets: [{
     match: { collection: 'posts' },
-    pattern: ':date/:url'
+    pattern: ':date/:path'
   }]
 }))
 .use(feed({

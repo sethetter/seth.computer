@@ -2,7 +2,8 @@
 collection: posts
 layout: post.html
 title: I'm going to work for The OpenGov Foundation!
-url: going-to-work-for-opengov-foundation
+path: going-to-work-for-opengov-foundation
+url: 2015/11/14/going-to-work-for-opengov-foundation
 date: 2015-11-14
 ---
 

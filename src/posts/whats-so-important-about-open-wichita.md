@@ -2,7 +2,8 @@
 collection: posts
 layout: post.html
 title: What's so important about Open Wichita?
-url: whats-so-important-about-open-wichita
+path: whats-so-important-about-open-wichita
+url: 2015/11/25/whats-so-important-about-open-wichita
 date: 2015-11-25
 ---
 

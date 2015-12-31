@@ -2,7 +2,8 @@
 collection: posts
 layout: post.html
 title: How I made this site with Jekyll and GitHub
-url: how-i-made-this-site-with-jekyll-and-github
+path: how-i-made-this-site-with-jekyll-and-github
+url: 2015/10/15/how-i-made-this-site-with-jekyll-and-github
 date: 2015-10-15
 ---
 
