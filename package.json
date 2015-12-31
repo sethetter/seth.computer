@@ -4,7 +4,9 @@
   "description": "My website, built using [Jekyll](https://jekyllrb.com) and the [Lanyon theme](https://github.com/poole/lanyon).",
   "main": "index.js",
   "scripts": {
-    "build": "node index.js"
+    "build": "node index.js",
+    "serve": "hs _site",
+    "deploy": "./bin/deploy"
   },
   "repository": {
     "type": "git",
