@@ -21,16 +21,16 @@ don't have it, I recommend using [rvm](https://rvm.io/).
 
 If you're up and running with Ruby, next you need to install Jekyll.
 
-{% highlight bash %}
+```bash
 $ gem install jekyll
-{% endhighlight %}
+```
 
 Now you can create your new site! The Jekyll command line tool let's you
 generate a new Jekyll site with the following command.
 
-{% highlight bash %}
+```bash
 $ jekyll new your-site-name
-{% endhighlight %}
+```
 
 As an alternative, you can go find a cool Jekyll theme (like I did - the
 [Lanyon theme](https://github.com/poole/lanyon)) and start with that. In my case
@@ -42,9 +42,9 @@ structure is already set up to work like a Jekyll site should.
 Since developing directly on a live server is not usually a good idea, you might
 want to know how to serve your Jekyll site locally.
 
-{% highlight bash %}
+```bash
 $ jekyll s
-{% endhighlight %}
+```
 
 The "s" is short for "serve". Makes sense, right? Cool.
 
@@ -88,9 +88,9 @@ site, and you're good to go.
 To build your site and generate the static files that you can host wherever you
 like, use:
 
-{% highlight bash %}
+```bash
 $ jekyll b
-{% endhighlight %}
+```
 
 The `b` is short for build. You could also write `jekyll build`. Once you've
 done this your site will be ready and available in `_site/`. You could then take
@@ -109,9 +109,9 @@ branch" to something of your choosing.
 
 Make sure to create a gh-pages branch locally and then push to it on GitHub:
 
-{% highlight bash %}
+```bash
 $ git push origin gh-pages
-{% endhighlight %}
+```
 
 You can use Jekyll normally and when you push to this new repo, it will build it
 and make it available at https://yourusername.github.io/repo-name.
@@ -125,9 +125,9 @@ The first thing you'll want to do is create a file in the root directory of
 your repo called CNAME. This file should only contain the custom domain you are
 going to use, without the protocol. Mine liikes like this:
 
-{% highlight bash %}
+```bash
 sethetter.com
-{% endhighlight %}
+```
 
 Then you'll need to set a couple A records in your zone file for your domain.
 The IP addresses to point to are 192.30.252.153 and 192.30.252.154. For more
