@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+      
+        I switched to Metalsmith, for no good reason &middot; sethetter.com
+      
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/lanyon.css">
+    <link rel="stylesheet" href="/assets/css/seth.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  </head>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+         styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+    <!-- Toggleable sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p></p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item active" href="/">Home</a>
+
+        <a class="sidebar-nav-item" href="/about">About</a>
+        <a class="sidebar-nav-item" href="https://twitter.com/sethetter">Twitter</a>
+        <a class="sidebar-nav-item" href="https://github.com/sethetter">GitHub</a>
+        <a class="sidebar-nav-item" href="https://devict.org">devICT</a>
+        <a class="sidebar-nav-item" href="http://openwichita.com">Open Wichita</a>
+        <a class="sidebar-nav-item" href="/atom.xml">RSS Feed</a>
+      </nav>
+
+      <div class="sidebar-item">
+        <p>
+          &copy; 2016. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">sethetter.com</a>
+            <small>Code, community and Wichita, KS</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+  <div class="post">
+    <h1 class="post-title">I switched to Metalsmith, for no good reason</h1>
+    <span class="post-date">30 Dec 2015</span>
+    <p>I decided, over the last couple days, to learn a bit about
+<a href="http://metalsmith.io">Metalsmith</a>. It&#39;s a static content generator for node.js.
+I&#39;ve been happy with <a href="http://jekyllrb.com">Jekyll</a>, thoroughly so. But I&#39;m
+definitely more of a JavaScript guy, so I wanted to check out what Metalsmith
+had to offer.</p>
+<h2 id="i-admit-it">I admit it</h2>
+<p>This was essentially pointless. I had a website that already functioned the way
+I wanted it to. Namely:</p>
+<ol>
+<li>Hosted on GitHub</li>
+<li>Dynamically generated static content</li>
+<li>Written in markdown</li>
+</ol>
+<p>Jekyll does a fantastic job at that. Also, considering I wanted to host on
+GitHub, choosing jekyll makes that <em>even easier</em> since it&#39;s supported. With
+Metalsmith I had to <a href="https://github.com/sethetter/sethetter.com/blob/master/bin/deploy">add a small
+step</a> to
+commit the generated content by itself into the <code>gh-pages</code> branch.</p>
+<p>Not a big deal, but still.</p>
+<p>Sometimes, I&#39;m a bit of a purist. At least in situations where it isn&#39;t
+detrimental. I wanted to learn about Metalsmith, so I rebuilt my website with
+it. BIG DEAL!</p>
+<p>Anyways..</p>
+<h2 id="metalsmith-is-awesome-">Metalsmith is awesome!</h2>
+<p>Unlike Jekyll, Metalsmith is a base system that takes files from a <code>src/</code>
+directory and outputs them to a destination folder. It passes these files
+through a series of middleware &quot;plugins&quot; that perform different operations on
+them. This makes Metalsmith much more flexible than Jekyll.</p>
+<p>It just so happens that Jekyll already did what I needed. But again, that&#39;s
+beside the point.</p>
+<p>It goes something like this:</p>
+<pre><code class="lang-javascript">Metalsmith(__dirname)
+.use(markdown())
+.use(collections({
+  posts: { sortBy: &#39;date&#39; }
+})
+.use(layouts({
+  engine: &#39;handlebars&#39;,
+  directory: &#39;./layouts&#39;
+})
+.build(function(err) {
+  if (err) throw err;
+});
+</code></pre>
+<p>Each of the functions in the <code>use</code> statements are a plugin. Plugins are super
+easy. They just have to be a function that accepts <code>files</code>, <code>metalsmith</code>, and
+<code>next</code>. You do some stuff with the files, attach information to the <code>metalsmith</code>
+instance, or whatever else you want to do, then call <code>next()</code>.</p>
+<pre><code class="lang-javascript">Metalsmith(__dirname)
+.use(function(files, metalsmith, next) {
+  addLotsOfCurseWords(files);
+  metalsmith.metadata().familyFriendly = false;
+
+  next();
+});
+</code></pre>
+<p>There are a bunch of metalsmith plugins already created too. I didn&#39;t have to
+write anything new to accomplish what I wanted, which again, was a jekyll
+replacement.</p>
+<h2 id="did-i-waste-my-time-">Did I waste my time?</h2>
+<p>I felt like I was at first, because surely there was another project that I
+could have used to learn metalsmith with, but I chose this one. All in all, I
+just wanted to switch to my site being generated by node instead of ruby,
+whether that&#39;s petty and pointless or not, damnit, I did it.</p>
+<p>It was fun though! I&#39;ve really enjoyed working with metalsmith and plan to use
+it for static sites in the future. It can be much more than that, so I&#39;m happy
+to have this new tool under my belt.</p>
+<h2 id="the-sooooooource">The sooooooource</h2>
+<p>You can <a href="https://github.com/sethetter/sethetter.com">view the source on github</a>.</p>
+<p>Feel free to ask any questions. I&#39;m not a metalsmith expert, by any means, but
+I learned a bit.</p>
+<p>THE END</p>
+
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    //var disqus_config = function () {
+    //  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    //  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    //};
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//sethetter.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-8216238-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

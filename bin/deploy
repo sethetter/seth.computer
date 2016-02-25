@@ -1,6 +1,7 @@
 npm install
 npm run build
 git checkout gh-pages
+git merge master
 cp -r _site/* .
 git add .
 git commit -a -m "Site update"
