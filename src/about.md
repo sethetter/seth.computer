@@ -4,9 +4,9 @@ title: About
 ---
 
 I am a Wichita, KS based web application developer with a huge focus on
-community. I work full time for [The OpenGov Foundation](opengov) and
-organize two Wichita community groups, [devICT](devict) and [Open
-Wichita](openwichita).
+community and civic tech. I work full time for [The OpenGov
+Foundation](opengov) and organize two Wichita community groups,
+[devICT](devict) and [Open Wichita](openwichita).
 
 I think technology has the potential to change our world in powerful and
 positive ways if used correctly. It's my goal to make that happen and to empower
