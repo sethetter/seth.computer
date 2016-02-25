@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+      
+        Small components, or large frameworks? &middot; sethetter.com
+      
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/lanyon.css">
+    <link rel="stylesheet" href="/assets/css/seth.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  </head>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+         styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+    <!-- Toggleable sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p></p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item active" href="/">Home</a>
+
+        <a class="sidebar-nav-item" href="/about">About</a>
+        <a class="sidebar-nav-item" href="https://twitter.com/sethetter">Twitter</a>
+        <a class="sidebar-nav-item" href="https://github.com/sethetter">GitHub</a>
+        <a class="sidebar-nav-item" href="https://devict.org">devICT</a>
+        <a class="sidebar-nav-item" href="http://openwichita.com">Open Wichita</a>
+        <a class="sidebar-nav-item" href="/atom.xml">RSS Feed</a>
+      </nav>
+
+      <div class="sidebar-item">
+        <p>
+          &copy; 2016. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">sethetter.com</a>
+            <small>Code, community and Wichita, KS</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+  <div class="post">
+    <h1 class="post-title">Small components, or large frameworks?</h1>
+    <span class="post-date">25 Jun 2015</span>
+    <p>This is a hot topic these days, and the JavaScript world is definitely siding
+with &quot;small, composable components&quot; over &quot;one framework that gives you
+everything you probably need&quot;. However, I think there are some things to
+consider that get often looked over in the debate.</p>
+<p>Just to clarify: I&#39;m not sure which I side on. I have <em>years</em> of frustrations
+with frameworks that make me think the small module approach is &quot;better&quot;. But,
+I&#39;ve also experienced some pains when working in a component driven stack as
+well.</p>
+<p>Maybe I&#39;m just playing devil&#39;s advocate, or something. Either way, here&#39;s what&#39;s
+been on my mind.</p>
+<h3 id="frameworks-are-complex-and-that-s-bad">Frameworks are complex, and that&#39;s bad</h3>
+<p>Sure. Frameworks have to solve for a lot of things, and they have to try and
+provide as many features as possible to handle any scenario that you might
+encounter. The point of a framework is giving you just about everything you
+could need. That&#39;s a pretty big task to take on, so inherently it&#39;s going to
+result in a complex system.</p>
+<p>Here&#39;s the thing people never mention: sometimes you need all those things, and
+<strong>a large web application is going to be a inherently complex</strong>. We should
+always strive to make them as simple as possible, but there is still a
+limitation. The things we build sometimes have to be large and complex.</p>
+<p><strong>Scenario 1: Build it with a framework</strong></p>
+<p>If we are building a very large and featureful web application, using a
+framework means we have all we need (allegedly, I&#39;ll admit). Learning to use the
+framework is an overhead, but the documentation is usually all in one place and
+usually consistent, which is nice.</p>
+<p><strong>Scenario 2: Build it with a bunch of small modules</strong></p>
+<p>If we are building a very large and featureful web application using a bunch of
+small modules, we are <em>still</em> going to end up with a pretty damn complex
+technology stack. Just because each tool in itself is small and easy to
+understand doesn&#39;t mean that the collection of modules and how they interact <em>as
+a whole</em> will also be simple and digestible.</p>
+<p>In fact, it can be quite the opposite.</p>
+<h3 id="consistency">Consistency</h3>
+<p>One benefit of a framework is the consistency. If you arent&#39;t sure how to
+accomplish a particular task, chances are it has been done by another user of
+the framework and you can find the answer online somewhere.</p>
+<p>For modules, this is equally true. However, if the task you&#39;re trying to
+accomplish involves more than just one of the modules you&#39;re using, then you
+have to find an answer that involves the use of those two modules specifically,
+which can be a bit less likely (unless they&#39;re very popular modules, etc).</p>
+<h3 id="the-parts-of-a-whole">The parts of a whole</h3>
+<p>When you&#39;re working with a framework, typically each piece of that framework has
+it&#39;s own documentation. You could even think of these pieces as modules that fit
+into a greater whole. That doesn&#39;t seem so bad, does it? You&#39;re essentially
+doing the same with a collection of module components.</p>
+<p>The difference is that the components in a framework are built with the rest of
+the components in mind. They make damn sure that they will work well together,
+and that&#39;s also part of the documentation. If two people are building modules in
+isolation, who&#39;s to say how easily those two modules will actually work
+together?</p>
+<p>Sure, things like standardization and semantics can help guide this. But the
+point is that frameworks typically make sure to have you covered.</p>
+<h3 id="enough-rambling">Enough rambling</h3>
+<p>This is something that&#39;s been on my mind. I&#39;m personally trying to make my
+decision on which type of architecture I prefer. There are clear wins on either
+side, but my big point is that <strong>this idea that our applications will be so much
+simpler because we use a collection of simple tools is false</strong>.</p>
+<p>Combining a bunch of simple tools into a large system (framework, even?) results
+in complexity. The complexity of a system is better handled in the overall
+architecture of the system itself, not necessarily the tools you use to build
+it.</p>
+<p>Don&#39;t judge a tool just because it&#39;s a framework, judge it based on the actual
+overall quality of it. Complete solutions can be great, and small modules can be
+great. They each have their place in the world.</p>
+
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    //var disqus_config = function () {
+    //  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    //  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    //};
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//sethetter.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-8216238-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

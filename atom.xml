@@ -1,0 +1,1423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[sethetter.com]]></title><description><![CDATA[sethetter.com]]></description><link>sethetter.com</link><generator>metalsmith-feed</generator><lastBuildDate>Thu, 25 Feb 2016 17:29:00 GMT</lastBuildDate><atom:link href="atom.xml" rel="self" type="application/rss+xml"/><author><![CDATA[Seth Etter]]></author><item><title><![CDATA[I switched to Metalsmith, for no good reason]]></title><description><![CDATA[<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+      
+        I switched to Metalsmith, for no good reason &middot; sethetter.com
+      
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/lanyon.css">
+    <link rel="stylesheet" href="/assets/css/seth.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  </head>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+         styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+    <!-- Toggleable sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p></p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item active" href="/">Home</a>
+
+        <a class="sidebar-nav-item" href="/about">About</a>
+        <a class="sidebar-nav-item" href="https://twitter.com/sethetter">Twitter</a>
+        <a class="sidebar-nav-item" href="https://github.com/sethetter">GitHub</a>
+        <a class="sidebar-nav-item" href="https://devict.org">devICT</a>
+        <a class="sidebar-nav-item" href="http://openwichita.com">Open Wichita</a>
+        <a class="sidebar-nav-item" href="/atom.xml">RSS Feed</a>
+      </nav>
+
+      <div class="sidebar-item">
+        <p>
+          &copy; 2016. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">sethetter.com</a>
+            <small>Code, community and Wichita, KS</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+  <div class="post">
+    <h1 class="post-title">I switched to Metalsmith, for no good reason</h1>
+    <span class="post-date">30 Dec 2015</span>
+    <p>I decided, over the last couple days, to learn a bit about
+<a href="http://metalsmith.io">Metalsmith</a>. It&#39;s a static content generator for node.js.
+I&#39;ve been happy with <a href="http://jekyllrb.com">Jekyll</a>, thoroughly so. But I&#39;m
+definitely more of a JavaScript guy, so I wanted to check out what Metalsmith
+had to offer.</p>
+<h2 id="i-admit-it">I admit it</h2>
+<p>This was essentially pointless. I had a website that already functioned the way
+I wanted it to. Namely:</p>
+<ol>
+<li>Hosted on GitHub</li>
+<li>Dynamically generated static content</li>
+<li>Written in markdown</li>
+</ol>
+<p>Jekyll does a fantastic job at that. Also, considering I wanted to host on
+GitHub, choosing jekyll makes that <em>even easier</em> since it&#39;s supported. With
+Metalsmith I had to <a href="https://github.com/sethetter/sethetter.com/blob/master/bin/deploy">add a small
+step</a> to
+commit the generated content by itself into the <code>gh-pages</code> branch.</p>
+<p>Not a big deal, but still.</p>
+<p>Sometimes, I&#39;m a bit of a purist. At least in situations where it isn&#39;t
+detrimental. I wanted to learn about Metalsmith, so I rebuilt my website with
+it. BIG DEAL!</p>
+<p>Anyways..</p>
+<h2 id="metalsmith-is-awesome-">Metalsmith is awesome!</h2>
+<p>Unlike Jekyll, Metalsmith is a base system that takes files from a <code>src/</code>
+directory and outputs them to a destination folder. It passes these files
+through a series of middleware &quot;plugins&quot; that perform different operations on
+them. This makes Metalsmith much more flexible than Jekyll.</p>
+<p>It just so happens that Jekyll already did what I needed. But again, that&#39;s
+beside the point.</p>
+<p>It goes something like this:</p>
+<pre><code class="lang-javascript">Metalsmith(__dirname)
+.use(markdown())
+.use(collections({
+  posts: { sortBy: &#39;date&#39; }
+})
+.use(layouts({
+  engine: &#39;handlebars&#39;,
+  directory: &#39;./layouts&#39;
+})
+.build(function(err) {
+  if (err) throw err;
+});
+</code></pre>
+<p>Each of the functions in the <code>use</code> statements are a plugin. Plugins are super
+easy. They just have to be a function that accepts <code>files</code>, <code>metalsmith</code>, and
+<code>next</code>. You do some stuff with the files, attach information to the <code>metalsmith</code>
+instance, or whatever else you want to do, then call <code>next()</code>.</p>
+<pre><code class="lang-javascript">Metalsmith(__dirname)
+.use(function(files, metalsmith, next) {
+  addLotsOfCurseWords(files);
+  metalsmith.metadata().familyFriendly = false;
+
+  next();
+});
+</code></pre>
+<p>There are a bunch of metalsmith plugins already created too. I didn&#39;t have to
+write anything new to accomplish what I wanted, which again, was a jekyll
+replacement.</p>
+<h2 id="did-i-waste-my-time-">Did I waste my time?</h2>
+<p>I felt like I was at first, because surely there was another project that I
+could have used to learn metalsmith with, but I chose this one. All in all, I
+just wanted to switch to my site being generated by node instead of ruby,
+whether that&#39;s petty and pointless or not, damnit, I did it.</p>
+<p>It was fun though! I&#39;ve really enjoyed working with metalsmith and plan to use
+it for static sites in the future. It can be much more than that, so I&#39;m happy
+to have this new tool under my belt.</p>
+<h2 id="the-sooooooource">The sooooooource</h2>
+<p>You can <a href="https://github.com/sethetter/sethetter.com">view the source on github</a>.</p>
+<p>Feel free to ask any questions. I&#39;m not a metalsmith expert, by any means, but
+I learned a bit.</p>
+<p>THE END</p>
+
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    //var disqus_config = function () {
+    //  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    //  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    //};
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//sethetter.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-8216238-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+]]></description><link>2015/12/30/i-switched-to-metalsmith-for-no-good-reason</link><guid isPermaLink="true">2015/12/30/i-switched-to-metalsmith-for-no-good-reason</guid><dc:creator><![CDATA[Seth Etter]]></dc:creator><pubDate>Wed, 30 Dec 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Bridging Wichita's communities]]></title><description><![CDATA[<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+      
+        Bridging Wichita&#39;s communities &middot; sethetter.com
+      
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/lanyon.css">
+    <link rel="stylesheet" href="/assets/css/seth.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  </head>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+         styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+    <!-- Toggleable sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p></p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item active" href="/">Home</a>
+
+        <a class="sidebar-nav-item" href="/about">About</a>
+        <a class="sidebar-nav-item" href="https://twitter.com/sethetter">Twitter</a>
+        <a class="sidebar-nav-item" href="https://github.com/sethetter">GitHub</a>
+        <a class="sidebar-nav-item" href="https://devict.org">devICT</a>
+        <a class="sidebar-nav-item" href="http://openwichita.com">Open Wichita</a>
+        <a class="sidebar-nav-item" href="/atom.xml">RSS Feed</a>
+      </nav>
+
+      <div class="sidebar-item">
+        <p>
+          &copy; 2016. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">sethetter.com</a>
+            <small>Code, community and Wichita, KS</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+  <div class="post">
+    <h1 class="post-title">Bridging Wichita&#39;s communities</h1>
+    <span class="post-date">29 Dec 2015</span>
+    <p>It&#39;s been said on numerous occasions that there are too many uncoordinated
+efforts in Wichita. That we have several community leaders working to create
+change and improve the city but that efforts are being duplicated. &quot;We need to
+coordinate and collaborate&quot; is what is often said, but the question remains:</p>
+<h3 id="how-exactly-">How, exactly?</h3>
+<p>Recently I was part of a meeting with several individuals involved in various
+community focused organizations here in town. The subject of the meeting was
+&quot;what is everyone doing and how can we collaborate&quot;. Overall I call it a
+productive meeting. I met individuals I had not known before and learned about
+organizations and efforts that exist here.</p>
+<p>However, it was far from obvious how we proceed with the set mission for that
+meeting. We settled on making sure we share contact information and
+organizational involvement, mostly so if an opportunity for two organizations to
+collaborate presents itself, we have the means to do so. I think this was a
+valid way to conclude the meeting.</p>
+<p>It seemed to me that there was some desire to create some kind of giant
+coordinated effort between all organizations represented at the meeting. <strong>I
+have no idea how that would have been possible</strong>. Given that, simply creating
+more awareness seemed like a productive conclusion.</p>
+<h3 id="but-">But..</h3>
+<p>I brought up briefly at the meeting that having a way to spread the word about
+the different efforts in Wichita to our own organization&#39;s members would be a
+great way to encourage cross-involvement within our memberships.</p>
+<p><em>How do we go about that?</em></p>
+<p>There&#39;s a number of ways that would be effective. One, however, struck me today.</p>
+<p><strong>What if there was a generalized event that individuals from every one of these
+various diverse organizations had a place in? An event where any one of these
+people had a voice to share their ideas?</strong></p>
+<p>This would allow members from any walks of life and background and interest in
+Wichita to attend the same meeting, hear from each other, and share their
+passions, interests, ideas, etc. It would increase awareness, create collisions,
+and boost efforts. Overall, it&#39;d be incredibly valuable.</p>
+<p>A good friend of mine, Kevin Falting, was recently inspired by the <a href="ignite-boulder">Ignite
+Boulder</a> speaking event. At this event, any person can get up
+and give a 5 minute talk on a subject or idea of their choice. <strong>It must be an
+idea, not just promotion. Teach, don&#39;t preach is the motto.</strong> But, it is
+inclusive to anyone wanting to spread an idea, and it&#39;s been an incredible part
+of the Boulder community.</p>
+<h3 id="let-s-do-it-here-">Let&#39;s do it here!</h3>
+<p>Kevin decided to take the reins and make this happen for Wichita. So he created
+<a href="http://wichitalks.com">Wichitalks</a>. I think this event has a ton of potential
+to bolster our community and spread ideas and efforts to places and people we
+haven&#39;t yet thought of.</p>
+<p>If nothing else, it&#39;s going to be very entertaining. The talks are meant to be
+educational, inspirational, motivating, inspiring and entertaining. <strong>It&#39;s open
+to anyone who wants to share their thoughts or ideas.</strong> I encourage you to
+attend, and if you feel so inclined, to speak.</p>
+<p><strong>The first occurrence will be on Jan 29, 2015, 6:30p at The Labor Party in Old
+Town. Come check it out.</strong></p>
+<p><a href="http://wichitalks.com">Check out the website</a> for more information or to sign
+up as a speaker. This is definitely an event worth attending.</p>
+
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    //var disqus_config = function () {
+    //  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    //  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    //};
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//sethetter.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-8216238-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+]]></description><link>2015/12/29/bridging-wichitas-communities</link><guid isPermaLink="true">2015/12/29/bridging-wichitas-communities</guid><dc:creator><![CDATA[Seth Etter]]></dc:creator><pubDate>Tue, 29 Dec 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[What's so important about Open Wichita?]]></title><description><![CDATA[<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+      
+        What&#39;s so important about Open Wichita? &middot; sethetter.com
+      
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/lanyon.css">
+    <link rel="stylesheet" href="/assets/css/seth.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  </head>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+         styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+    <!-- Toggleable sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p></p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item active" href="/">Home</a>
+
+        <a class="sidebar-nav-item" href="/about">About</a>
+        <a class="sidebar-nav-item" href="https://twitter.com/sethetter">Twitter</a>
+        <a class="sidebar-nav-item" href="https://github.com/sethetter">GitHub</a>
+        <a class="sidebar-nav-item" href="https://devict.org">devICT</a>
+        <a class="sidebar-nav-item" href="http://openwichita.com">Open Wichita</a>
+        <a class="sidebar-nav-item" href="/atom.xml">RSS Feed</a>
+      </nav>
+
+      <div class="sidebar-item">
+        <p>
+          &copy; 2016. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">sethetter.com</a>
+            <small>Code, community and Wichita, KS</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+  <div class="post">
+    <h1 class="post-title">What&#39;s so important about Open Wichita?</h1>
+    <span class="post-date">25 Nov 2015</span>
+    <p>If you&#39;re not familiar with Open Wichita, my first suggestion would be to check
+out our website at <a href="http://openwichita.com">openwichita.com</a>. In a nutshell,
+Open Wichita is a <em>civic hacking</em> initiative.</p>
+<p>It is a group of volunteers that aim to improve the city and community around
+them using technology. This can happen in many different ways, including
+<a href="public-transit">improving our public transit digital tooling</a>, <a href="observatory">rebooting our
+local observatory&#39;s exhibits and online presence</a>, and even
+<a href="voter-turnout">creating online tools to improve voter involvement</a>.  For a full
+list of our current projects, check out <a href="projects">the projects page</a>.</p>
+<h2 id="why-is-this-important-">Why is this important?</h2>
+<p>Wichita has long been a little behind the curve when it comes to technology. I
+don&#39;t like admitting this, because I am a <em>huge</em> fan of our city and want us to
+be the best we possibly can. For that same reason though, we have to admit our
+faults and focus on improving them.</p>
+<p>One way of doing this is to learn from the efforts and successes of other
+cities. A trend we see happening nationally is this idea of civic hacking. These
+are grassroots efforts powered by volunteers who care about their city.</p>
+<p>It&#39;s fed by local government collaboration, including an effort to open up
+public datasets that developers, designers and other individuals can use to
+create new digital services that add value to the city.</p>
+<p>They can also use this open data for analysis to produce reports and
+visualizations that can better inform decisions around policy making, budgets,
+and other efforts driven by local government and politics.</p>
+<p>Take a look at a similar effort in Chicago called <a href="smart-chicago">Smart Chicago</a>
+which has turned into a powerful force for change in their city. This was
+possible because of the bottom-up approach to solving problems that they took
+on. The <em>citizens</em> and <em>volunteers</em> drove the projects, and the city was there
+to support and collaborate where necessary.</p>
+<h2 id="civic-involvement">Civic Involvement</h2>
+<p>This has been a hot topic in Wichita recently. We want more people in the city
+to be a part of making it better. Personally I feel like I see this all over the
+place. People who care and are putting in time to create things to make Wichita
+a better place. Whether that is a business, a community, or a piece of artwork.
+We all live here together and want it to be the best place it can be.</p>
+<p>What I want to see is more recognition for these efforts. By allowing the
+citizens to be the driving force, backed up by local government and
+organizations, we too can experience the positive change that such a bottom-up
+approach can produce for a city.</p>
+<p>One step that can be taken on the city&#39;s part to make this happen is signing an
+<a href="open-data-cio">Open Data Policy</a> like <a href="federal-open-data-policy">the one the federal government has
+implemented</a> into legislation. This states the city&#39;s
+commitment to providing publicly collected data to the citizenship freely and
+openly.</p>
+<p>When you put this data into the hands of the public, amazing things can happen.
+Look at the <a href="open-wichita-about">examples listed on the Open Wichita website</a>
+for specific case studies of these effects. We need this here in Wichita,
+whether we realize it or not. There is nothing but good that can come from it,
+and we should pursue it.</p>
+<p>Besides civic involvement, this would also address another issue that we face in
+Wichita.</p>
+<h2 id="tech-centered-culture">Tech-centered culture</h2>
+<p>There has been a lot of talk lately in Wichita about creating a more
+&quot;innovative&quot; environment. That we used to be such an &quot;entrepreneurial&quot; town but
+we&#39;ve lost that spirit in more recent years. What one thing is at the center of
+innovation in today&#39;s world? -- <em>Technology</em>.</p>
+<p>Efforts such as civic hacking and an open data policy are tech-focused in their
+very nature. With the city signing an open data policy into legislation, that
+shows that we care about and are focused on technology. It shows that we&#39;re
+trying to improve our tech culture here, and creates more of a platform for it
+to flourish.</p>
+<p>Efforts like this allow developers and other tech-focused individuals to
+connect, collaborate, create and invent new things. They can create new products
+that lead to more tech companies in town. Our economy needs technology right now
+just as much as our local government efforts need it.</p>
+<p><em>There&#39;s a lot of work to be done, but it takes creating the foundation first.</em></p>
+<p>With the city&#39;s support, and the support of other local organizations, we can
+create a community that is focused on technology and innovation for the greater
+good. By supporting <em>civic</em> hacking efforts we create pride in our community,
+and a sense that we can <em>all</em> contribute to making Wichita a better place.</p>
+<p><em>Want to retain talent? Give them some ownership. Give them a reason to have
+pride in their community.</em> These efforts can do just that.</p>
+<h2 id="what-next-">What next?</h2>
+<p>Well, I want to see an open data policy signed into legislation. Then I&#39;d like
+to see efforts to get federal and foundation support for the city government to
+implement these open data practices. Then we just need more and more people to
+get involved in this movement and to care about their city.</p>
+<p>All of these pieces falling into place will allow <em>citizens</em> to be directly
+involved in the creation of a city they are proud of and care about. It takes
+some of the burden of solving the city&#39;s problems away from just government and
+politics.</p>
+<p><em>Let us be a driving force, and we will create a place that everyone can be
+proud of.</em></p>
+
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    //var disqus_config = function () {
+    //  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    //  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    //};
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//sethetter.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-8216238-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+]]></description><link>2015/11/25/whats-so-important-about-open-wichita</link><guid isPermaLink="true">2015/11/25/whats-so-important-about-open-wichita</guid><dc:creator><![CDATA[Seth Etter]]></dc:creator><pubDate>Wed, 25 Nov 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[I'm going to work for The OpenGov Foundation!]]></title><description><![CDATA[<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+      
+        I&#39;m going to work for The OpenGov Foundation! &middot; sethetter.com
+      
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/lanyon.css">
+    <link rel="stylesheet" href="/assets/css/seth.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  </head>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+         styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+    <!-- Toggleable sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p></p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item active" href="/">Home</a>
+
+        <a class="sidebar-nav-item" href="/about">About</a>
+        <a class="sidebar-nav-item" href="https://twitter.com/sethetter">Twitter</a>
+        <a class="sidebar-nav-item" href="https://github.com/sethetter">GitHub</a>
+        <a class="sidebar-nav-item" href="https://devict.org">devICT</a>
+        <a class="sidebar-nav-item" href="http://openwichita.com">Open Wichita</a>
+        <a class="sidebar-nav-item" href="/atom.xml">RSS Feed</a>
+      </nav>
+
+      <div class="sidebar-item">
+        <p>
+          &copy; 2016. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">sethetter.com</a>
+            <small>Code, community and Wichita, KS</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+  <div class="post">
+    <h1 class="post-title">I&#39;m going to work for The OpenGov Foundation!</h1>
+    <span class="post-date">14 Nov 2015</span>
+    <p>Ever since I have been a developer and have known about the wonderful world of
+open source software I have dreamed of being able to contribute to that
+ecosystem full time. Well, I&#39;m finally get that opportunity. Not only am I
+getting the chance to work on open source full time, the projects that I will be
+working on are civically focused and support the ideas of open and transparent
+government, something I&#39;m very passionate about.</p>
+<p>As of this coming Monday, November 16th, I will be employed with <a href="http://opengovfoundation.org">The OpenGov
+Foundation</a> as a Senior Application Developer! I
+can&#39;t begin to express how excited and honored I am to have this opportunity.
+It&#39;s always been of utmost importance to me to know that the time I spend
+working goes towards bettering the world around me in some way, and now I can be
+more sure of that than I ever have been before.</p>
+<p>I&#39;ve very much enjoyed my time at <a href="http://balancedcomp.com">BalancedComp</a>, and
+I&#39;ll miss every single one of the team members there greatly. I&#39;m thankful for
+everything I&#39;ve learned there, and the incredibly fun times we&#39;ve had in the
+office. Board game breaks are not something I will be able to have at most
+places of employment, haha.</p>
+<p>Though, when a chance like this came along, I certainly couldn&#39;t ignore it. I&#39;m
+looking forward to contributing to the amazing work that the team at OpenGov
+has started and to push our nation&#39;s legislative processes forward into the
+twenty-first century.</p>
+<p><em>Here&#39;s to creating a more open and accessible government. I can&#39;t wait to get
+started</em></p>
+
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    //var disqus_config = function () {
+    //  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    //  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    //};
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//sethetter.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-8216238-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+]]></description><link>2015/11/14/going-to-work-for-opengov-foundation</link><guid isPermaLink="true">2015/11/14/going-to-work-for-opengov-foundation</guid><dc:creator><![CDATA[Seth Etter]]></dc:creator><pubDate>Sat, 14 Nov 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[How I made this site with Jekyll and GitHub]]></title><description><![CDATA[<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+      
+        How I made this site with Jekyll and GitHub &middot; sethetter.com
+      
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/lanyon.css">
+    <link rel="stylesheet" href="/assets/css/seth.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  </head>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+         styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+    <!-- Toggleable sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p></p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item active" href="/">Home</a>
+
+        <a class="sidebar-nav-item" href="/about">About</a>
+        <a class="sidebar-nav-item" href="https://twitter.com/sethetter">Twitter</a>
+        <a class="sidebar-nav-item" href="https://github.com/sethetter">GitHub</a>
+        <a class="sidebar-nav-item" href="https://devict.org">devICT</a>
+        <a class="sidebar-nav-item" href="http://openwichita.com">Open Wichita</a>
+        <a class="sidebar-nav-item" href="/atom.xml">RSS Feed</a>
+      </nav>
+
+      <div class="sidebar-item">
+        <p>
+          &copy; 2016. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">sethetter.com</a>
+            <small>Code, community and Wichita, KS</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+  <div class="post">
+    <h1 class="post-title">How I made this site with Jekyll and GitHub</h1>
+    <span class="post-date">15 Oct 2015</span>
+    <p>So, this site is made with a system called <a href="http://jekyllrb.com/">Jekyll</a>. It&#39;s
+a static site generator written in Ruby. It&#39;s dead simple to use, and with the
+help of GitHub, can be really quick and easy to deploy as well.</p>
+<p>On top of all that, you get to write your site content in
+<a href="https://daringfireball.net/projects/markdown/">markdown</a>! Can&#39;t beat that.</p>
+<h2 id="getting-jekyll">Getting Jekyll</h2>
+<p>First you need Ruby installed, I don&#39;t want to go too far into this but if you
+don&#39;t have it, I recommend using <a href="https://rvm.io/">rvm</a>.</p>
+<p>If you&#39;re up and running with Ruby, next you need to install Jekyll.</p>
+<pre><code class="lang-bash">$ gem install jekyll
+</code></pre>
+<p>Now you can create your new site! The Jekyll command line tool let&#39;s you
+generate a new Jekyll site with the following command.</p>
+<pre><code class="lang-bash">$ jekyll new your-site-name
+</code></pre>
+<p>As an alternative, you can go find a cool Jekyll theme (like I did - the
+<a href="https://github.com/poole/lanyon">Lanyon theme</a>) and start with that. In my case
+I just forked the repo, cloned it down, and made it my own. The directory
+structure is already set up to work like a Jekyll site should.</p>
+<h2 id="local-development">Local development</h2>
+<p>Since developing directly on a live server is not usually a good idea, you might
+want to know how to serve your Jekyll site locally.</p>
+<pre><code class="lang-bash">$ jekyll s
+</code></pre>
+<p>The &quot;s&quot; is short for &quot;serve&quot;. Makes sense, right? Cool.</p>
+<p>Now you can navigate to <a href="http://localhost:4000">http://localhost:4000</a> and see your awesome statically
+generated site. But how exactly is this working? It&#39;s pretty simple, really.</p>
+<h2 id="it-s-all-static-files">It&#39;s all static files</h2>
+<p>All Jekyll does is take your layout files and your markdown for pages and posts
+and then turn them into static HTML files. It compiles this all into a folder
+called <code>_site/</code> and then launches a file server on your system.</p>
+<p>Some benefits of this are that it&#39;s crazy fast, no server side logic to deal
+with, just send along the files.</p>
+<p>For making your layouts more complex, there is an <code>_includes/</code> folder that you
+can use to hold HTML fragments that you might reuse in multiple places. You can
+also define different layouts in the <code>_layouts/</code> folder for different page
+types, like pages vs posts.</p>
+<p>Lastly, <code>index.html</code> is going to be the home page for your site. Again, makes
+sense.</p>
+<h2 id="site-content">Site content</h2>
+<p>All of the site content is done is markdown. You can use HTML optionally, but
+why would you? All of your blog posts and page content will be automagically
+compiled into your layouts based on a couple things.</p>
+<h3 id="blog-posts">Blog posts</h3>
+<p>All your blog posts will go into a <code>_posts/</code> folder. The naming convention is
+<code>YYYY-MM-DD-title-of-your-post.md</code>. Jekyll, when rendering your site, will loop
+through all of these and create a list of them on your home page, and create an
+individual post view page for each as well.</p>
+<p>Any time you create a new post, you simply add the file to the posts folder with
+your content in markdown, and some basic information headers, re-render your
+site, and you&#39;re good to go.</p>
+<p>To build your site and generate the static files that you can host wherever you
+like, use:</p>
+<pre><code class="lang-bash">$ jekyll b
+</code></pre>
+<p>The <code>b</code> is short for build. You could also write <code>jekyll build</code>. Once you&#39;ve
+done this your site will be ready and available in <code>_site/</code>. You could then take
+these files, put them up on any web server, and your site is ready!</p>
+<h2 id="hosting-on-github-pages">Hosting on GitHub Pages</h2>
+<p>Even easier than hosting static files on a web server is hosting this site on
+<a href="https://github.com">GitHub</a> using <a href="https://pages.github.com/">GitHub Pages</a>.
+Start by creating a repo for your site on your GitHub account.</p>
+<p>You will want to have your primary git branch for this site as <code>gh-pages</code>
+instead of <code>master</code> like you normally would. If you go to the &quot;Settings&quot; in your
+GitHub repo, then &quot;Branches&quot;, you will see a place to change the &quot;Default
+branch&quot; to something of your choosing.</p>
+<p>Make sure to create a gh-pages branch locally and then push to it on GitHub:</p>
+<pre><code class="lang-bash">$ git push origin gh-pages
+</code></pre>
+<p>You can use Jekyll normally and when you push to this new repo, it will build it
+and make it available at <a href="https://yourusername.github.io/repo-name">https://yourusername.github.io/repo-name</a>.</p>
+<h2 id="setting-up-custom-domain">Setting up custom domain</h2>
+<p>You have a site deployed using GitHub pages and Jekyll! Now you might want to
+point a custom domain at it so you have something a little friendlier.</p>
+<p>The first thing you&#39;ll want to do is create a file in the root directory of
+your repo called CNAME. This file should only contain the custom domain you are
+going to use, without the protocol. Mine liikes like this:</p>
+<pre><code class="lang-bash">sethetter.com
+</code></pre>
+<p>Then you&#39;ll need to set a couple A records in your zone file for your domain.
+The IP addresses to point to are 192.30.252.153 and 192.30.252.154. For more
+info on this, check out <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/">Setting up a custom domain with GitHub
+Pages</a>.</p>
+<h2 id="themes-">Themes?</h2>
+<p>Check out <a href="http://jekyllthemes.org/">jekyllthemes.org</a>, or just google for
+<a href="http://lmgtfy.com/?q=jekyll+themes">Jekkyl Themes</a>. There&#39;s a ton out there.
+This one is built using the <a href="https://github.com/poole/lanyon">Lanyon</a> theme.</p>
+<h2 id="that-s-it-">That&#39;s it!</h2>
+<p>Go have fun :)</p>
+
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    //var disqus_config = function () {
+    //  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    //  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    //};
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//sethetter.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-8216238-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+]]></description><link>2015/10/15/how-i-made-this-site-with-jekyll-and-github</link><guid isPermaLink="true">2015/10/15/how-i-made-this-site-with-jekyll-and-github</guid><dc:creator><![CDATA[Seth Etter]]></dc:creator><pubDate>Thu, 15 Oct 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Small components, or large frameworks?]]></title><description><![CDATA[<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+      
+        Small components, or large frameworks? &middot; sethetter.com
+      
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/lanyon.css">
+    <link rel="stylesheet" href="/assets/css/seth.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  </head>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+         styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+    <!-- Toggleable sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p></p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item active" href="/">Home</a>
+
+        <a class="sidebar-nav-item" href="/about">About</a>
+        <a class="sidebar-nav-item" href="https://twitter.com/sethetter">Twitter</a>
+        <a class="sidebar-nav-item" href="https://github.com/sethetter">GitHub</a>
+        <a class="sidebar-nav-item" href="https://devict.org">devICT</a>
+        <a class="sidebar-nav-item" href="http://openwichita.com">Open Wichita</a>
+        <a class="sidebar-nav-item" href="/atom.xml">RSS Feed</a>
+      </nav>
+
+      <div class="sidebar-item">
+        <p>
+          &copy; 2016. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">sethetter.com</a>
+            <small>Code, community and Wichita, KS</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+  <div class="post">
+    <h1 class="post-title">Small components, or large frameworks?</h1>
+    <span class="post-date">25 Jun 2015</span>
+    <p>This is a hot topic these days, and the JavaScript world is definitely siding
+with &quot;small, composable components&quot; over &quot;one framework that gives you
+everything you probably need&quot;. However, I think there are some things to
+consider that get often looked over in the debate.</p>
+<p>Just to clarify: I&#39;m not sure which I side on. I have <em>years</em> of frustrations
+with frameworks that make me think the small module approach is &quot;better&quot;. But,
+I&#39;ve also experienced some pains when working in a component driven stack as
+well.</p>
+<p>Maybe I&#39;m just playing devil&#39;s advocate, or something. Either way, here&#39;s what&#39;s
+been on my mind.</p>
+<h3 id="frameworks-are-complex-and-that-s-bad">Frameworks are complex, and that&#39;s bad</h3>
+<p>Sure. Frameworks have to solve for a lot of things, and they have to try and
+provide as many features as possible to handle any scenario that you might
+encounter. The point of a framework is giving you just about everything you
+could need. That&#39;s a pretty big task to take on, so inherently it&#39;s going to
+result in a complex system.</p>
+<p>Here&#39;s the thing people never mention: sometimes you need all those things, and
+<strong>a large web application is going to be a inherently complex</strong>. We should
+always strive to make them as simple as possible, but there is still a
+limitation. The things we build sometimes have to be large and complex.</p>
+<p><strong>Scenario 1: Build it with a framework</strong></p>
+<p>If we are building a very large and featureful web application, using a
+framework means we have all we need (allegedly, I&#39;ll admit). Learning to use the
+framework is an overhead, but the documentation is usually all in one place and
+usually consistent, which is nice.</p>
+<p><strong>Scenario 2: Build it with a bunch of small modules</strong></p>
+<p>If we are building a very large and featureful web application using a bunch of
+small modules, we are <em>still</em> going to end up with a pretty damn complex
+technology stack. Just because each tool in itself is small and easy to
+understand doesn&#39;t mean that the collection of modules and how they interact <em>as
+a whole</em> will also be simple and digestible.</p>
+<p>In fact, it can be quite the opposite.</p>
+<h3 id="consistency">Consistency</h3>
+<p>One benefit of a framework is the consistency. If you arent&#39;t sure how to
+accomplish a particular task, chances are it has been done by another user of
+the framework and you can find the answer online somewhere.</p>
+<p>For modules, this is equally true. However, if the task you&#39;re trying to
+accomplish involves more than just one of the modules you&#39;re using, then you
+have to find an answer that involves the use of those two modules specifically,
+which can be a bit less likely (unless they&#39;re very popular modules, etc).</p>
+<h3 id="the-parts-of-a-whole">The parts of a whole</h3>
+<p>When you&#39;re working with a framework, typically each piece of that framework has
+it&#39;s own documentation. You could even think of these pieces as modules that fit
+into a greater whole. That doesn&#39;t seem so bad, does it? You&#39;re essentially
+doing the same with a collection of module components.</p>
+<p>The difference is that the components in a framework are built with the rest of
+the components in mind. They make damn sure that they will work well together,
+and that&#39;s also part of the documentation. If two people are building modules in
+isolation, who&#39;s to say how easily those two modules will actually work
+together?</p>
+<p>Sure, things like standardization and semantics can help guide this. But the
+point is that frameworks typically make sure to have you covered.</p>
+<h3 id="enough-rambling">Enough rambling</h3>
+<p>This is something that&#39;s been on my mind. I&#39;m personally trying to make my
+decision on which type of architecture I prefer. There are clear wins on either
+side, but my big point is that <strong>this idea that our applications will be so much
+simpler because we use a collection of simple tools is false</strong>.</p>
+<p>Combining a bunch of simple tools into a large system (framework, even?) results
+in complexity. The complexity of a system is better handled in the overall
+architecture of the system itself, not necessarily the tools you use to build
+it.</p>
+<p>Don&#39;t judge a tool just because it&#39;s a framework, judge it based on the actual
+overall quality of it. Complete solutions can be great, and small modules can be
+great. They each have their place in the world.</p>
+
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    //var disqus_config = function () {
+    //  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    //  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    //};
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//sethetter.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-8216238-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+]]></description><link>2015/06/25/small-components-or-large-frameworks</link><guid isPermaLink="true">2015/06/25/small-components-or-large-frameworks</guid><dc:creator><![CDATA[Seth Etter]]></dc:creator><pubDate>Thu, 25 Jun 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[What makes Wichita so awesome?]]></title><description><![CDATA[<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+      
+        What makes Wichita so awesome? &middot; sethetter.com
+      
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/lanyon.css">
+    <link rel="stylesheet" href="/assets/css/seth.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  </head>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+         styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+    <!-- Toggleable sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-item">
+        <p></p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item active" href="/">Home</a>
+
+        <a class="sidebar-nav-item" href="/about">About</a>
+        <a class="sidebar-nav-item" href="https://twitter.com/sethetter">Twitter</a>
+        <a class="sidebar-nav-item" href="https://github.com/sethetter">GitHub</a>
+        <a class="sidebar-nav-item" href="https://devict.org">devICT</a>
+        <a class="sidebar-nav-item" href="http://openwichita.com">Open Wichita</a>
+        <a class="sidebar-nav-item" href="/atom.xml">RSS Feed</a>
+      </nav>
+
+      <div class="sidebar-item">
+        <p>
+          &copy; 2016. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">sethetter.com</a>
+            <small>Code, community and Wichita, KS</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+  <div class="post">
+    <h1 class="post-title">What makes Wichita so awesome?</h1>
+    <span class="post-date">26 Apr 2015</span>
+    <p>Good question. I think there are a lot of people in Wichita who would argue
+whether Wichita is awesome in the first place. I&#39;m here to offer a
+counterpoint.</p>
+<p>One of the main things I hear in point against Wichita is that there is &quot;nothing
+to do here&quot; which in my mind is quite ridiculous. Every week it seems I am
+finding out about more events and venues that I had never heard of before. So
+many small groups in town are making things happen, and that&#39;s awesome.</p>
+<p>When I hear people talk against Wichita, they often compare it to some other
+place, usually coupled with plans to move to said new location. &quot;Wichita has
+nothing going on, and [insert bigger city here] is just awesome!&quot;</p>
+<p>This is unfair. Every city is going to have it&#39;s good qualities and it&#39;d bad
+qualities. I guarantee that the possible of there being something <em>bad</em> about
+wherever they plan to move to hasn&#39;t crossed their minds yet. They also do quick
+work to forget about all the good things that exist about Wichita.</p>
+<p><strong>What good things?</strong> - Well, let me tell you.</p>
+<h5 id="awesome-things-are-happening-here-">Awesome things ARE happening here!</h5>
+<p>To target the question of &quot;what is there to do in Wichita&quot; - it really doesn&#39;t
+take much searching to find that awesome things are happening all over the
+place.</p>
+<p>Just yesterday I went on a journey to some location known as the <a href="https://www.facebook.com/TheRedBarnOutdoorMarket">Red Barn
+Outdoor Market</a> in order to
+try a new vegan food truck in town, <a href="http://www.kindkravings.com/">Kind
+Kravings</a>. I had no idea what I was getting myself
+into.</p>
+<p>It turned out to be a gathering of literally <em>thousands</em> of people all to form a
+bi-annual outdoor market for individuals who make and sell just about anything
+you can imagine -- furniture, signs, jewelry, food, and many other forms of art.
+There were musicians, entertainers, and of course a giant crowd enjoying the
+event to the fullest.</p>
+<p>The fact that I can still stumble upon awesome things like this that I never
+knew existed around here is awesome. People are starting events like this all
+the time, so there is always some new awesome things to check out.</p>
+<ul>
+<li><p>Groups like <a href="http://www.kansas.com/news/local/article4167320.html">MakeICT</a>
+are <a href="http://www.kansas.com/news/business/biz-columns-blogs/carrie-rengers/article14699531.html">creating
+spaces</a>
+for individuals to come and make whatever it is they want.</p>
+</li>
+<li><p>Arts organizations such as <a href="http://www.harvesterarts.com/">Harvester Arts</a>,
+<a href="http://www.fischhaus.com/">Fisch Haus</a> and all of the <a href="http://commerceartsdistrict.com/">Commerce Street Arts
+District</a> are putting on awesome events to
+showcase local talent.</p>
+</li>
+<li><p>Grassroots media publications such as <a href="http://f5paper.com/">F5</a> and
+<a href="http://midwestdigest.ninja">Midwest Digest</a> are doing their part to
+spread the word of awesome around Wichita.</p>
+</li>
+<li><p><a href="http://twitter.com/startupwichita">Startup Wichita</a> exists to bring
+together entrepreneurs in the area to assist each other in creating new
+local businesses, and to put on events like <a href="http://startupweekend.org">Startup
+Weekend</a> (we&#39;ve had 5 of them now).</p>
+</li>
+</ul>
+<p><em>The list goes on.</em></p>
+<p>All of these things are signs that Wichita is incredibly active. People
+are making things happen, and you can be a part of them all.</p>
+<h5 id="massively-supportive-community">Massively supportive community</h5>
+<p>So things are happening here, we can see evidence of that. But what
+about <em>your</em> idea? What about what <em>you</em> want to see happen around here?</p>
+<p>The thing to remember is that most of these communities, locations and
+events are started by small groups of people here in Wichita, sometimes
+even just one individual.</p>
+<p>It takes very little effort to get something going here, and with a
+large population of people looking for more things to do, it&#39;s easy to
+make yourself known and to draw a crowd.</p>
+<p>It doesn&#39;t matter <em>who</em> you are in Wichita. <strong>You can make something
+happen</strong>, no matter what it is. There exists a community here for your
+particular niche, and they are ready and willing (even excited) to
+support you in your endeavor. Regardless of the circle, I&#39;ve witnessed
+almost zero elitism here. That in itself is incredibly valuable.</p>
+<p>Wichita has one of the most supportive communities I&#39;ve ever seen, and
+that community just happens to be <strong>packed</strong> with incredibly talented
+and creative individuals. Best part of all? They&#39;re all awesome, humble
+people, who would gladly sit down, have a beer with you, and offer
+whatever advice and support that they can.</p>
+<p>That&#39;s something you typically don&#39;t see in larger communities, and a
+big part of why I am proud to call Wichita my home town.</p>
+<h5 id="be-the-change-you-want-to-see">Be the change you want to see</h5>
+<p>I&#39;m sure you&#39;ve heard this phrase before. The idea behind it is that
+instead of complaining about things that are <em>wrong</em> around you it&#39;s
+more effective to set the example and spread the influence that you want
+to see around you.</p>
+<p>This is advice that I try to follow in my life, all throughout my
+interactions with individuals. But in the context of Wichita this
+statement is even more powerful.</p>
+<p><strong>Wichita is a blank slate, begging to be morphed it something even more
+awesome than it already is.</strong></p>
+<p>The amazing communities that exist here are nearly all grassroots
+efforts that have ended up impacting the community in a positive way.
+They&#39;re all supportive of others who are trying to do the same.</p>
+<p>Because of this combination just about <em>anyone</em> can make an impact here.
+Is there something about Wichita you don&#39;t like? Something you think is
+missing? <strong>Then make it happen</strong>. Plenty of other individuals have done
+just that. What&#39;s stopping you?</p>
+<p>It&#39;s hard to make a big splash in much larger communities. Here in
+Wichita we are a tight-knit group who all share a common interest in
+making our hometown awesome. It&#39;s an incredibly good feeling to do so,
+and there is no place on Earth where it&#39;s more possible.</p>
+<p>So - stop complaining, and go out there and make something awesome
+happen. All it takes is trying, and you&#39;ll see the support of our great
+community come out of nowhere to help you along your journey.</p>
+<p><strong>That is why I love Wichita. That is why Wichita is awesome.</strong></p>
+
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    //var disqus_config = function () {
+    //  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    //  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    //};
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//sethetter.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+  </noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-8216238-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
+]]></description><link>2015/04/26/what-makes-wichita-so-awesome</link><guid isPermaLink="true">2015/04/26/what-makes-wichita-so-awesome</guid><dc:creator><![CDATA[Seth Etter]]></dc:creator><pubDate>Sun, 26 Apr 2015 00:00:00 GMT</pubDate></item></channel></rss>
