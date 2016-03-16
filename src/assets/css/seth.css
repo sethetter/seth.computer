@@ -1,3 +1,7 @@
+.posts {
+  padding-top: 15px;
+}
+
 .posts .post {
   margin-bottom: 1em;
 }
@@ -6,4 +10,13 @@
   display: inline !important;
   margin: 0;
   font-size: 0.8em;
+}
+
+footer {
+  padding-bottom: 15px;
+}
+
+footer p {
+  font-size: 0.9em;
+  color: #777;
 }
