@@ -1,0 +1,28 @@
+body {
+  font-family: "Source Sans Pro";
+  color: #333;
+  font-size: 20px; }
+
+h1, h2, h3 {
+  font-family: "Bitter"; }
+
+a:link, a:visited {
+  text-decoration: none; }
+
+a:hover, a:active {
+  }
+
+.main {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.lead {
+  font-size: 1.2em;
+  margin: 1.3em 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.3em;
+  color: #555; }
+
+footer {
+  margin-top: 2.5em;
+  border-top: 1px solid #ddd; }

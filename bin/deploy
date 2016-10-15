@@ -1,8 +1,0 @@
-npm install
-npm run build
-git checkout gh-pages
-cp -r _site/* .
-git add .
-git commit -m "Site update"
-git push origin gh-pages
-git checkout master
