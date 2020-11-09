@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>sethetter.com</title>
+
+        <link rel="shortcut icon" href="/images/favicon.ico">
+
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="/"><strong>sethetter.com</strong></a>
+            </div>
+            <div id="navigation">
+                <ul>
+                    <li>
+                        <a href="/posts">writing</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/sethetter">github</a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/sethetter">twitter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="content">
+            {% block content %} {% endblock %}
+        </div>
+
+        <div id="footer">
+            Written and maintained by
+            <a href="https://sethetter.com">Seth Etter</a>.
+        </div>
+
+        <script src="https://cdn.usefathom.com/script.js" data-site="HRUUKZPR" defer></script>
+    </body>
+</html>

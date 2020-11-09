@@ -1,0 +1,148 @@
+@use "./normalize";
+@use "./syntax";
+
+@font-face {
+  font-family: "Lato";
+  src: local("Lato"), url("/fonts/Lato-Regular.ttf");
+  font-weight: regular;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: local("Lato"), url("/fonts/Lato-Bold.ttf");
+  font-weight: bold;
+}
+
+/**
+ * TODO: Sassify this!
+ */
+
+body {
+  color: #333;
+  font-family: Lato, "Source Sans Pro", sans;
+  font-size: 18px;
+  line-height: 1.5em;
+  margin: 0px auto 0px auto;
+  padding: 0 15px;
+  max-width: 700px;
+}
+
+ul.post-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+ul.post-list li a {
+  text-decoration: none;
+}
+
+ul.post-list li em {
+  color: #999;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #23527c;
+}
+
+div#header {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 30px;
+  padding: 12px 0px 12px 0px;
+  display: flex;
+}
+
+div#logo, div#navigation {
+  flex-grow: 1;
+}
+
+div#logo a {
+  color: black;
+  float: left;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+div#header #navigation {
+  text-align: right;
+}
+
+
+div#header #navigation ul {
+  list-style: none;
+  margin: 0;
+}
+
+div#header #navigation ul li {
+  display: inline;
+}
+
+div#header #navigation a {
+  color: black;
+  font-size: 16px;
+  margin-left: 12px;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+div#footer {
+  border-top: solid 1px #aaa;
+  color: #555;
+  font-size: 12px;
+  margin-top: 30px;
+  padding: 12px 0px 12px 0px;
+  text-align: right;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Lato, sans;
+  font-weight: bold;
+  color: #555;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+div.info {
+  color: #555;
+  font-size: 14px;
+  font-style: italic;
+}
+
+body pre {
+  font-size: 0.8em;
+  line-height: 1.5em;
+  background: #f3f3f3;
+  padding: 10px 15px;
+}
+
+blockquote {
+  border-left: 10px solid #eee;
+  margin-left: 0;
+  padding-left: 30px;
+  color: #888;
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #aaa;
+}
+
+section.header {
+  margin: 0;
+  font-size: 16px;
+  padding-bottom: 15px;
+  color: #888;
+  border-bottom: solid 1px #d9d9d9;
+}
