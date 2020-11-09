@@ -5,13 +5,7 @@
 <h1>{{ page.title }}</h1>
 <article>
     <section class="header">
-        {{ page.date }}
-        
-        <em>
-            <a href="{{ config.extra.git_url }}/commits/master/content{{ current_path | trim_end_matches(pat="/") }}.md">
-                View the revision history for this page.
-            </a>
-        </em>
+        {{ page.date | date(format="%B %m, %Y") }}
     </section>
     <section>
         {{ page.content | safe }}
