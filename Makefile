@@ -8,4 +8,4 @@ build:
 
 .PHONY: deploy
 deploy: build
-	npx netlify deploy --prod --dir=public
+	netlify deploy --prod --dir=public
