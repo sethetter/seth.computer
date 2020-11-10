@@ -12,6 +12,10 @@
                 <a href="{{ link.url }}" title="{{ link.name }}">{{ link.name }}</a>
             {% endfor %}
         {% endif %}
+        <br>
+        {% for tag in page.taxonomies["tags"] %}
+            <span class="tag">{{ tag }}</span>
+        {% endfor %}
     </section>
     <section>
         {{ page.content | safe }}

@@ -14,5 +14,9 @@ build_search_index = true
 generate_feed = true
 feed_filename = "rss.xml"
 
+taxonomies = [
+  { name = "tags" },
+]
+
 [extra]
 git_url = "https://github.com/sethetter/sethetter.com"

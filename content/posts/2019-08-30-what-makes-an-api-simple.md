@@ -2,6 +2,9 @@
 title = "What makes an API simple?"
 author = "Seth Etter"
 date = 2019-08-30
+
+[taxonomies]
+tags = ["programming", "api"]
 +++
 
 I recently published a blog post for the [Ad Hoc

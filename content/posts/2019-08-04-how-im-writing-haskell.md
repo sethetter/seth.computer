@@ -2,6 +2,9 @@
 title = "How I'm currently writing Haskell"
 author = "Seth Eter"
 date = 2019-08-04
+
+[taxonomies]
+tags = ["programming", "haskell"]
 +++
 
 Recently, I decided to jump back into learning and exploring in the fun and

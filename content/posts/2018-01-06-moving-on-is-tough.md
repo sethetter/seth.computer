@@ -2,6 +2,9 @@
 title = "Moving on is tough"
 author = "Seth Etter"
 date = 2018-01-06
+
+[taxonomies]
+tags = ["personal"]
 +++
 
 A little over 5 years ago I decided to put myself out there and try something I

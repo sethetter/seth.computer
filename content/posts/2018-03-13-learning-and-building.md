@@ -2,6 +2,9 @@
 title = "Learning and building"
 author = "Seth Etter"
 date = 2018-03-13
+
+[taxonomies]
+tags = ["learning"]
 +++
 
 This post will serve as a reminder to myself, but hopefully also as useful

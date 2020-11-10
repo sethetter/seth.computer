@@ -1,6 +1,9 @@
 +++
 title = "Asynchronous remote work"
 date = 2020-03-19
+
+[taxonomies]
+tags = ["productivity", "teams"]
 +++
 
 This page contains some of my personal processes, tips, guidance, advice, etc, regarding working and collaborating **remotely** and **asynchronously**.

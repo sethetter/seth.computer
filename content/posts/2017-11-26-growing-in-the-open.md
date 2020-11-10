@@ -2,6 +2,9 @@
 title = "Growing in the open"
 author = "Seth Eter"
 date = 2017-11-26
+
+[taxonomies]
+tags = ["learning"]
 +++
 
 I started writing online pretty early in my journey as a developer. I've known
