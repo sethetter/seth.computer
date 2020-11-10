@@ -6,10 +6,11 @@ jobs:
     container: thibaultmorin/zola:latest
     steps:
       - run: build 
-        entrypoint: /usr/bin/zola
-      - uses: actions/upload-artifact@v2
-        entrypoint: /usr/bin/env
         with:
+          entrypoint: /usr/bin/zola
+      - uses: actions/upload-artifact@v2
+        with:
+          entrypoint: /usr/bin/env
           name: site
           path: public
   deploy:
