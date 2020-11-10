@@ -5,8 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: thibaultmorin/zola:latest
+      options:
+        entrypoint: ["/usr/bin/env"]
     steps:
-      - run: build 
+      - run: zola build 
       - uses: actions/upload-artifact@v2
         with:
           name: site
