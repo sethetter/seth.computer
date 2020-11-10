@@ -20,6 +20,8 @@ RUN npm i -g netlify-cli
 
 RUN ls -la /bin
 
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 # build and deploy!
-RUN zola build
-RUN netlify deploy --prod --dir=${netlify_deploy_dir}
+# RUN zola build
+# RUN netlify deploy --prod --dir=${netlify_deploy_dir}
