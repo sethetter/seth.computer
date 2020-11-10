@@ -1,26 +1,10 @@
 name: build-and-deploy
 on: [push]
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: build 
-        uses: docker://thibaultmorin/zola:latest
-      - uses: actions/upload-artifact@v2
+      - uses: ./.github/actions/build-and-deploy
         with:
-          entrypoint: /usr/bin/env
-          name: site
-          path: public
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/download-artifact@v2
-        with:
-          name: site
-      - uses: actions/setup-node@v1
-      - run: npm i -g netlify-cli
-      - run: netlify deploy --prod --dir public
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          site_id: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          site_id: ${{ secrets.NETLIFY_SITE_ID }}
