@@ -1,0 +1,24 @@
+name: build-and-deploy
+on: [push]
+jobs:
+  build:
+    container:
+      image: thibaultmorin/zola:latest
+    steps:
+      - run: zola build 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: site
+          path: public
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: site
+      - uses: actions/setup-node@v1
+      - run: npm i -g netlify-cli
+      - run: netlify deploy --prod --dir public
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
