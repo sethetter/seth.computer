@@ -13,7 +13,7 @@ RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/z
 RUN mv zola /usr/bin/zola
 RUN npm i -g netlify-cli
 
-RUN zola build
+RUN /usr/bin/zola build
 
 ENV NETLIFY_AUTH_TOKEN=${netlify_auth_token}
 ENV NETLIFY_SITE_ID=${netlify_site_id}
