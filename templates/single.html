@@ -14,7 +14,9 @@
         {% endif %}
         <br>
         {% for tag in page.taxonomies["tags"] %}
-            <span class="tag">{{ tag }}</span>
+            <span class="tag">
+                <a href="/tags/{{ tag }}" title="Tagged posts: {{ tag }}">{{ tag }}</a>
+            </span>&nbsp;
         {% endfor %}
     </section>
     <section>

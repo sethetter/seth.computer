@@ -1,4 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1 class="title">Tagged: {{ term.name }}</h1>
+<ul class="post-list">
+  {% for page in term.pages %}
+  <li>
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    {% for tag in page.taxonomies["tags"] %}
+      &nbsp;<span class="tag">
+          <a href="/tags/{{ tag }}" title="Tagged posts: {{ tag }}">{{ tag }}</a>
+      </span>
+    {% endfor %}
+    <em><small>&mdash;&nbsp;{{ page.date | date(format="%B %d, %Y") }}</small></em>
+  </li>
+
+  {% endfor %}
+</ul>
 {% endblock content %}

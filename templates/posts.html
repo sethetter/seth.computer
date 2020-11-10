@@ -8,7 +8,9 @@
   <li>
     <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
     {% for tag in page.taxonomies["tags"] %}
-    <span class="tag">{{ tag }}</span>
+      &nbsp;<span class="tag">
+          <a href="/tags/{{ tag }}" title="Tagged posts: {{ tag }}">{{ tag }}</a>
+      </span>
     {% endfor %}
     <em><small>&mdash;&nbsp;{{ page.date | date(format="%B %d, %Y") }}</small></em>
   </li>
