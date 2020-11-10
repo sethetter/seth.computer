@@ -3,11 +3,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: thibaultmorin/zola:latest
     steps:
       - run: build 
-        with:
-          entrypoint: /usr/bin/zola
+        uses: docker://thibaultmorin/zola:latest
       - uses: actions/upload-artifact@v2
         with:
           entrypoint: /usr/bin/env
