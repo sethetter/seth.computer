@@ -3,12 +3,12 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: thibaultmorin/zola:latest
-      options: "--entrypoint='/usr/bin/env'"
+    container: thibaultmorin/zola:latest
     steps:
-      - run: zola build 
+      - run: build 
+        entrypoint: /usr/bin/zola
       - uses: actions/upload-artifact@v2
+        entrypoint: /usr/bin/env
         with:
           name: site
           path: public
