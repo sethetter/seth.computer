@@ -6,7 +6,7 @@ jobs:
     container:
       image: thibaultmorin/zola:latest
       options:
-        entrypoint: ["/usr/bin/env"]
+        - "--entrypoint='/usr/bin/env'"
     steps:
       - run: zola build 
       - uses: actions/upload-artifact@v2
