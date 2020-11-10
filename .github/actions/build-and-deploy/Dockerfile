@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-ARG zola_version=12.2.0
+ARG zola_version=0.12.2
 ARG netlify_auth_token
 ARG netlify_site_id
 ARG netlify_deploy_dir=public
