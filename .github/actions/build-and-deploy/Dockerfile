@@ -9,7 +9,7 @@ WORKDIR /src
 
 RUN apk add curl~=7
 # TODO: parameterize zola version
-RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/zola-${zola_version}-x86_64-unknown-linux-gnu.tar.gz | tar xz
+RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/zola-v${zola_version}-x86_64-unknown-linux-gnu.tar.gz | tar xz
 RUN mv zola /usr/bin/zola
 RUN npm i -g netlify-cli
 
