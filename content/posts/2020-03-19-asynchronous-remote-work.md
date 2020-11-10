@@ -142,7 +142,3 @@ Making as much of our work async friendly as possible is the goal. However, some
 which all require immediate engagement, which flies in the face of async work.
 
 Consolidate "be available" responsibilities like investigator and on-call, and establish a regular rotation. This sets the expectation that a person will be doing more synchronous work for their time in the rotation, and let's the team (and possibly other stakeholders) know who that available person is.
-
-# Individual Processes
-
-Working well in an async remote environment is a team challenge, but it is also a personal one. Information and advice on being effective from a personal standpoint can be found in the [productivity](/productivity) page.
