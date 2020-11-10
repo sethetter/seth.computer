@@ -5,8 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: thibaultmorin/zola:latest
+      volumes:
+        - ./:/workdir
     steps:
-      - run: zola build 
+      - run: build 
       - uses: actions/upload-artifact@v2
         with:
           name: site
