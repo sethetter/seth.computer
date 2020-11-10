@@ -6,6 +6,12 @@
 <article>
     <section class="header">
         {{ page.date | date(format="%B %d, %Y") }}
+        {% if page.extra["links"] %}
+            {% for link in page.extra["links"] %}
+                &nbsp;|&nbsp;
+                <a href="{{ link.url }}" title="{{ link.name }}">{{ link.name }}</a>
+            {% endfor %}
+        {% endif %}
     </section>
     <section>
         {{ page.content | safe }}

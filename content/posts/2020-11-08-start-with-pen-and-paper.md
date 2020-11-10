@@ -2,6 +2,12 @@
 title = "Start with pen and paper"
 author = "Seth Etter"
 date = 2020-11-08
+
+[extra]
+links = [
+  { name = "Hacker News", url = "https://news.ycombinator.com/item?id=25031483" },
+  { name = "Twitter", url = "https://news.ycombinator.com/item?id=25031483" },
+]
 +++
 
 tl;dr — If you feel unfocused, grab a pen and paper and start writing your thoughts down.
