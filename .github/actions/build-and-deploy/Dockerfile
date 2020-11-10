@@ -8,9 +8,11 @@ ARG netlify_deploy_dir=public
 WORKDIR /src
 
 RUN apk add curl~=7
-# TODO: parameterize zola version
 RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/zola-v${zola_version}-x86_64-unknown-linux-gnu.tar.gz | tar xz
+RUN ls -la
+# TODO: this isn't working -- confirm zola is present!
 RUN mv zola /usr/bin/zola
+RUN chmod +x /usr/bin/zola
 RUN npm i -g netlify-cli
 
 RUN /usr/bin/zola build
