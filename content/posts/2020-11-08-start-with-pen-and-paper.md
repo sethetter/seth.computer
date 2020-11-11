@@ -9,6 +9,7 @@ tags = ["writing", "productivity"]
 [extra]
 links = [
   { name = "Hacker News", url = "https://news.ycombinator.com/item?id=25031483" },
+  { name = "Twitter", url = "https://twitter.com/sethetter/status/1326528768127668226" },
 ]
 +++
 
