@@ -14,8 +14,10 @@ RUN apk add bash~=5
 RUN apk add curl~=7
 
 # zola
-RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/zola-v${zola_version}-x86_64-unknown-linux-gnu.tar.gz | tar xz
-RUN mv zola /usr/local/bin/
+RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/zola-v${zola_version}-x86_64-unknown-linux-gnu.tar.gz | tar xz -C /usr/local/bin
+
+# TODO: remove debug
+RUN zola --help
 
 # netlify
 RUN npm i -g netlify-cli
