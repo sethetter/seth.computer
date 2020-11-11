@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts
 
 ARG zola_version=0.12.2
 ARG netlify_auth_token
@@ -10,20 +10,17 @@ ENV NETLIFY_SITE_ID=${netlify_site_id}
 
 WORKDIR /src
 
-RUN apk add bash~=5
-RUN apk add curl~=7
+RUN apt-get update && apt-get install -y curl
 
 # zola
 RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/zola-v${zola_version}-x86_64-unknown-linux-gnu.tar.gz | tar xz -C /usr/local/bin
 
-# TODO: remove debug
-RUN bash -c '/usr/local/bin/zola --help'
-
 # netlify
 RUN npm i -g netlify-cli
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+# COPY entrypoint.sh /entrypoint.sh
+# ENTRYPOINT ["/entrypoint.sh"]
+
 # build and deploy!
-# RUN zola build
-# RUN netlify deploy --prod --dir=${netlify_deploy_dir}
+RUN zola build
+RUN netlify deploy --prod --dir=${netlify_deploy_dir}
