@@ -10,15 +10,15 @@ ENV NETLIFY_SITE_ID=${netlify_site_id}
 
 WORKDIR /src
 
-# zola
+RUN apk add bash~=5
 RUN apk add curl~=7
+
+# zola
 RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/zola-v${zola_version}-x86_64-unknown-linux-gnu.tar.gz | tar xz
-RUN mv zola /bin/zola
+RUN mv zola /usr/local/bin/zola
 
 # netlify
 RUN npm i -g netlify-cli
-
-RUN ls -la /bin
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
