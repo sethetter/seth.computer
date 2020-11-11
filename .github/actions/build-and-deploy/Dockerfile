@@ -10,17 +10,12 @@ ENV NETLIFY_SITE_ID=${netlify_site_id}
 
 WORKDIR /src
 
-RUN apt-get update && apt-get install -y curl
-
-# zola
+# Install zola
 RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/zola-v${zola_version}-x86_64-unknown-linux-gnu.tar.gz | tar xz -C /usr/local/bin
 
-# netlify
+# Install netlify
 RUN npm i -g netlify-cli
 
-# COPY entrypoint.sh /entrypoint.sh
-# ENTRYPOINT ["/entrypoint.sh"]
-
-# build and deploy!
+# Build and deploy!
 RUN zola build
 RUN netlify deploy --prod --dir=${netlify_deploy_dir}
