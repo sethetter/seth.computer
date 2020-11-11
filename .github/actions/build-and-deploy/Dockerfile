@@ -16,6 +16,6 @@ RUN curl -L https://github.com/getzola/zola/releases/download/v${zola_version}/z
 # Install netlify
 RUN npm i -g netlify-cli
 
-# Build and deploy!
-RUN zola build
-RUN netlify deploy --prod --dir=${netlify_deploy_dir}
+# Kick off build and deploy
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
