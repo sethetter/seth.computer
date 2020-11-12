@@ -1,17 +1,15 @@
 name: 'Build and deploy'
 description: 'Build site with Zola and deploy to Netlify'
-# inputs:
-#   auth_token:
-#     description: 'Netlify auth token'
-#     required: true
-#   site_id:
-#     description: 'Netlify site ID to deploy to'
-#     required: true
+inputs:
+  auth_token:
+    description: 'Netlify auth token'
+    required: true
+  site_id:
+    description: 'Netlify site ID to deploy to'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    # - netlify_auth_token=${{ inputs.auth_token }}
-    # - netlify_site_id=${{ inputs.site_id }}
-    - netlify_auth_token=${{ secrets.NETLIFY_AUTH_TOKEN }}
-    - netlify_site_id=${{ secrets.NETLIFY_SITE_ID}}
+    - netlify_auth_token=${{ inputs.auth_token }}
+    - netlify_site_id=${{ inputs.site_id }}
