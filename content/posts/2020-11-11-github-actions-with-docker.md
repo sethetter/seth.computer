@@ -4,6 +4,12 @@ date = 2020-11-11
 
 [taxonomies]
 tags = ['programming']
+
+[extra]
+links = [
+  { name = "Hacker News", url = "https://news.ycombinator.com/item?id=25066079" },
+  { name = "Twitter", url = "https://twitter.com/sethetter/status/1326729005337341953" },
+]
 +++
 
 I finally decided to dip my toes into GitHub actions recently, for a relatively simple task: build and deploy my personal site. The site is built with [zola](https://getzola.org) and deployed to [netlify](https://netlify.com).
