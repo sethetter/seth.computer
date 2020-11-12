@@ -30,14 +30,14 @@ body {
 ul.post-list {
   padding-left: 0;
   list-style: none;
-}
-
-ul.post-list li a {
-  text-decoration: none;
-}
-
-ul.post-list li em {
-  color: #999;
+  li {
+    a {
+      text-decoration: none;
+    }
+    em {
+      color: #999;
+    }
+  }
 }
 
 a {
