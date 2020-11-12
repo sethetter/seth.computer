@@ -7,9 +7,18 @@ inputs:
   site_id:
     description: 'Netlify site ID to deploy to'
     required: true
+  deploy_dir:
+    description: 'Directory to deploy to netlify'
+    required: true
+  zola_version:
+    description: 'Version of zola to pull'
+    required: true
+    default: '0.12.2'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - netlify_auth_token=${{ inputs.auth_token }}
-    - netlify_site_id=${{ inputs.site_id }}
+  env:
+    - ZOLA_VERSION=${{ inputs.zola_version }}
+    - NETLIFY_AUTH_TOKEN=${{ inputs.auth_token }}
+    - NETLIFY_SITE_ID=${{ inputs.site_id }}
+    - NETLIFY_DEPLOY_DIR=${{ inputs.deploy_dir }}

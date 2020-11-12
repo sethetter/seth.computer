@@ -7,5 +7,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/build-and-deploy
         with:
+          zola_version: '0.12.2'
           auth_token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           site_id: ${{ secrets.NETLIFY_SITE_ID }}
+          deploy_dir: 'public'
