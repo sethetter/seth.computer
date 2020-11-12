@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/sethetter
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://sethetter.com
+  * I am sethetter (https://keybase.io/sethetter) on keybase.
+  * I have a public key ASD29A9H1paM-AG9ELdOo3HplSEmYXPxCcT_2e8a4caGbQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01209d3f71e8f6978169eba43cbc6a8d22ebbf2ddf2997a43a62da109cf51710b4910a",
+      "host": "keybase.io",
+      "kid": "0120f6f40f47d6968cf801bd10b74ea371e99521266173f109c4ffd9ef1ae1c6866d0a",
+      "uid": "c25124c74364f332c49222b9f639b619",
+      "username": "sethetter"
+    },
+    "merkle_root": {
+      "ctime": 1581559553,
+      "hash": "ffd3ef4b1bf9f47385396a85788e1f6270ab1259c8f1e88c81318f711b60e4735c90d9b5875b3e7366dd685e9e4183c1037701b47f78f45909f29d862967b668",
+      "hash_meta": "a973b45f5ac9d446ca2eef15deee493aaafca5afc3fcfffdc79080976ae2b185",
+      "seqno": 14587343
+    },
+    "service": {
+      "entropy": "qBw+H4/d2wdLP+kIJYSR1tmV",
+      "hostname": "sethetter.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.2.0"
+  },
+  "ctime": 1581559573,
+  "expire_in": 504576000,
+  "prev": "0321b687682f7618f1fcb79ad6cc494f5ccd45d6922f29a6771ae07ee6169e22",
+  "seqno": 42,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg9vQPR9aWjPgBvRC3TqNx6ZUhJmFz8QnE/9nvGuHGhm0Kp3BheWxvYWTESpcCKsQgAyG2h2gvdhjx/Lea1sxJT1zNRdaSLymmdxrgfuYWniLEIM7c1OhRB8Va+J3xKal31CQgpvGtu9Tn+Lnk6kdIp9YgAgHCo3NpZ8RA96ZCpGT1RsppVXtghle1OkLl7t1OW3zt2kuh0eWJUuvUlzYE+UxJ+1bqBHAJINwTuF0uCW1HKkvcMlBMhpuUA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIIHjycY1rTKNnsyOGpXGreMwakheiNOWD1RVcSYdCi29o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/sethetter
+
+==================================================================
