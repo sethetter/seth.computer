@@ -18,7 +18,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    - ZOLA_VERSION=${{ inputs.zola_version }}
-    - NETLIFY_AUTH_TOKEN=${{ inputs.auth_token }}
-    - NETLIFY_SITE_ID=${{ inputs.site_id }}
-    - NETLIFY_DEPLOY_DIR=${{ inputs.deploy_dir }}
+    ZOLA_VERSION: ${{ inputs.zola_version }}
+    NETLIFY_AUTH_TOKEN: ${{ inputs.auth_token }}
+    NETLIFY_SITE_ID: ${{ inputs.site_id }}
+    NETLIFY_DEPLOY_DIR: ${{ inputs.deploy_dir }}
