@@ -16,7 +16,8 @@ inputs:
     default: '0.12.2'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'node:lts'
+  entrypoint: './entrypoint.sh'
   env:
     ZOLA_VERSION: ${{ inputs.zola_version }}
     NETLIFY_AUTH_TOKEN: ${{ inputs.auth_token }}
