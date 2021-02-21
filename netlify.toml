@@ -1,0 +1,5 @@
+[build]
+  base = "."
+  publish = "public"
+  command = "zola build"
+  functions = "functions/"
