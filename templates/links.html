@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">Things worth reading</h1>
+<ul class="post-list">
+  {% for page in section.pages %}
+  <li>
+    <a href="{{ page.extra.url | safe }}">{{ page.title }}</a>
+    {% for tag in page.taxonomies["tags"] %}
+      &nbsp;<span class="tag">
+          <a href="/tags/{{ tag }}" title="Tagged posts: {{ tag }}">{{ tag }}</a>
+      </span>
+    {% endfor %}
+  </li>
+
+  {% endfor %}
+</ul>
+{% endblock content %}
