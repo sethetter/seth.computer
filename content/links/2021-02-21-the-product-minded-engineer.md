@@ -1,5 +1,5 @@
 +++
-title = "The Product Minded Software Engineer"
+title = "The product-minded software engineer"
 author = "Gergely Orosz"
 
 [extra]
