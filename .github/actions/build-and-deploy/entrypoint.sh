@@ -3,11 +3,11 @@ ZOLA_URL=https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola
 curl -L $ZOLA_URL | tar xz -C /usr/local/bin
 
 # Install netlify
-npm i -g netlify-cli
+npm i netlify-cli
 
 # Kick off build and deploy
 zola build
-netlify deploy \
+npx netlify deploy \
   --prod \
   --dir=$NETLIFY_DEPLOY_DIR \
  --auth=$NETLIFY_AUTH_TOKEN \
