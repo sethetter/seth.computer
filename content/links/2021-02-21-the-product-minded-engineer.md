@@ -6,5 +6,5 @@ author = "Gergely Orosz"
 url = "https://blog.pragmaticengineer.com/the-product-minded-engineer/"
 
 [taxonomies]
-tags = ["engineering", "product"]
+tags = ["programming", "product"]
 +++
