@@ -5,6 +5,11 @@ date = 2022-01-16
 
 [taxonomies]
 tags = ["teams", "productivity", "management"]
+
+[extra]
+links = [
+  { name = "Twitter", url = "https://twitter.com/sethetter/status/1482744387989815296" },
+]
 +++
 
 There's one lesson I've learned repeatedly, and am still learning to this day, as a manager -- **you can't do everything yourself**.
