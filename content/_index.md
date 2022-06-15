@@ -3,12 +3,6 @@
 
 # Hello! I'm Seth
 
-I am a Wichita, KS based software engineer with a focus on community and
-civic tech. I am currently an Engineering Lead at
-<a href="https://adhoc.team" title="Ad Hoc">Ad Hoc</a>. I also help
-organize the Wichita developers community group,
-<a href="https://devict.org" title="devICT">devICT</a>.
+I am a Kansas based software engineer with a focus on community and [civic technology](https://en.wikipedia.org/wiki/Civic_technology). I am currently an Engineering Lead at <a href="https://adhoc.team" title="Ad Hoc">Ad Hoc</a>. I also founded and help organize organize the Wichita developers community group, <a href="https://devict.org" title="devICT">devICT</a>.
 
-I believe technology has the potential to change our world in powerful and
-positive ways. It is my goal to help make that happen and to empower
-others to do the same.
+Technology has and continues to shape our world in powerful ways. It is my goal to help bend that change towards the good while inspiring and empowering others to do the same.
