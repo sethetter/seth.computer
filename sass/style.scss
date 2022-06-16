@@ -18,7 +18,8 @@
  */
 
 body {
-  color: #333;
+  background: #fdf6e3;
+  color: #657b83;
   font-family: Lato, "Source Sans Pro", sans;
   font-size: 18px;
   line-height: 1.5em;
@@ -40,13 +41,17 @@ ul.post-list {
   }
 }
 
+
+$green: #859900;
+$dark-green: scale-color($green, $lightness: -20%);
+
 a {
-  color: #337ab7;
+  color: $dark-green;
   text-decoration: none;
 }
 
 a:hover, a:focus {
-  color: #23527c;
+  color: $green;
 }
 
 div#header {
