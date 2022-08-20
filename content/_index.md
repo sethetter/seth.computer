@@ -1,8 +1,39 @@
 +++
 +++
 
-# Hello! I'm Seth
+# 👋 Hello! I'm Seth</h1>
 
-I am a Kansas based software engineer with a focus on community and [civic technology](https://en.wikipedia.org/wiki/Civic_technology). I am currently an Engineering Lead at <a href="https://adhoc.team" title="Ad Hoc">Ad Hoc</a>. I also founded and help organize organize the Wichita developers community group, <a href="https://devict.org" title="devICT">devICT</a>.
+I'm a software engineer living in Wichita, KS.
 
-Technology has and continues to shape our world in powerful ways. It is my goal to help bend that change towards the good while inspiring and empowering others to do the same.
+**Currently I am..**
+- Building things at [Zapier](https://zapier.com)
+- Organizing community at [devICT](https://devict.org)
+
+**You can find me..**
+- Sharing my thoughts on [Twitter](https://twitter.com/sethetter)
+- Building and collaborating on [GitHub](https://github.com/sethetter)
+- Hanging out in [devICT Slack](https://devict.org/slack)
+
+## Things I care about
+
+- Finding simple solutions to important problems
+- Fostering empathetic and collaborative environments
+- Leaving the world better than I found it
+
+## Things I enjoy
+
+- Spending time with family, friends, and community
+- Learning new things and sharing that knowledge
+- Building cool things, ideally with other people
+- Putting things into easily digestible lists
+
+## Things I've done
+
+- **2012**: Started working full time in software
+- **2012**: Started [devICT](https://devict.org), Wichita's dev community
+- **2012**: Helped organize Wichita Startup Weekend events
+- **2014**: Started Open Wichita, a [Code For America](https://www.codeforamerica.org) brigade
+- **2015**: Joined [OpenGov Foundation](http://opengovfoundation.org) to innovate in the US Congress
+- **2017**: Shut down Open Wichita to focus on family and work
+- **2018**: Joined [Ad Hoc](https://adhocteam.us) to work on [healthcare.gov](https://healthcare.gov)
+- **2022**: Came back to the private sector to work at [Zapier](https://zapier.com)
