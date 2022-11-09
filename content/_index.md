@@ -16,7 +16,7 @@ I'm a software engineer living in Wichita, KS.
 
 ## Things I care about
 
-- Finding simple solutions to important problems
+- Finding simple solutions to interesting problems
 - Fostering empathetic and collaborative environments
 - Leaving the world better than I found it
 
