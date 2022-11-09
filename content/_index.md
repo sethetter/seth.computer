@@ -10,7 +10,7 @@ I'm a software engineer living in Wichita, KS.
 - Organizing community at [devICT](https://devict.org)
 
 **You can find me..**
-- Sharing my thoughts on [Twitter](https://twitter.com/sethetter)
+- Sharing my thoughts on [Mastodon](https://indieweb.social/@seth)
 - Building and collaborating on [GitHub](https://github.com/sethetter)
 - Hanging out in [devICT Slack](https://devict.org/slack)
 
