@@ -23,8 +23,8 @@ I'm a software engineer living in Wichita, KS.
 ## Things I enjoy
 
 - Spending time with family, friends, and community
-- Learning new things and sharing that knowledge
-- Building cool things, ideally with other people
+- Learning things, and sharing that knowledge
+- Building things, ideally with other people
 - Putting things into easily digestible lists
 
 ## Things I've done
