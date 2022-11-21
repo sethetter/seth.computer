@@ -1,0 +1,3 @@
+/.well-known/host-meta* https://sethetter.social/.well-known/host-meta:splat 301
+/.well-known/webfinger* https://sethetter.social/.well-known/webfinger:splat 301
+/.well-known/nodeinfo* https://sethetter.social/.well-known/nodeinfo:splat 301
