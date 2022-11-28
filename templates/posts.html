@@ -7,6 +7,7 @@
   {% for page in section.pages %}
   <li>
     <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    <small><em>&mdash;&nbsp;<span>{{ page.date }}</span></em></small>
   </li>
   {% endfor %}
 </ul>
