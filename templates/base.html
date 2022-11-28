@@ -1,45 +1,49 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{% if page.title %}{{ page.title }} - {% endif %}{% if section.title %}{{ section.title }} - {% endif %}sethetter.com</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" href="/images/favicon.ico">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{% if section.title %}{{ section.title }} - {% endif
+        %}sethetter.com</title>
 
-        <link rel="stylesheet" href="/style.css" />
-    </head>
-    <body>
-        <div id="header">
-            <div id="logo">
-                <a href="/"><strong>sethetter.com</strong></a>
-            </div>
-            <div id="navigation">
-                <ul>
-                    <li>
-                        <a href="/posts">writing</a>
-                    </li>
-                    <li>
-                        <a href="/links">links</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/sethetter">code</a>
-                    </li>
-                </ul>
-            </div>
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <div id="header">
+        <div id="logo">
+            <a href="/"><strong>seth etter</strong>&nbsp;<small><em>dot</em></small>&nbsp;&nbsp;<strong>com</strong></a>
         </div>
-
-        <div id="content">
-            {% block content %} {% endblock %}
+        <div id="navigation">
+            <ul>
+                <li>
+                    <a href="/posts">writing</a>
+                </li>
+                <li>
+                    <a href="/links">links</a>
+                </li>
+                <li>
+                    <a href="https://github.com/sethetter">code</a>
+                </li>
+            </ul>
         </div>
+    </div>
 
-        <div id="footer">
-            Written and maintained by
-            <a href="https://sethetter.com">Seth Etter</a>.
-        </div>
+    <div id="content">
+        {% block content %} {% endblock %}
+    </div>
 
-        <script src="https://cdn.usefathom.com/script.js" data-site="HRUUKZPR" defer></script>
-    </body>
+    <div id="footer">
+        Written and maintained by
+        <a href="https://sethetter.com">Seth Etter</a>.
+    </div>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="HRUUKZPR" defer></script>
+</body>
+
 </html>
