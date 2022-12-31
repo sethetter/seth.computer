@@ -29,7 +29,7 @@ I'm a software engineer living in Wichita, KS.
 - Spending time with family, friends, and community
 - Learning things, and sharing that knowledge
 - Building things, ideally with other people
-- Putting things into easily digestible lists
+- Music, games, food & drink, you know, the usual stuff
 
 ## Things I've done
 
