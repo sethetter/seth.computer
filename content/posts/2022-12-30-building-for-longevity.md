@@ -18,5 +18,9 @@ There's a long list of qualities you could consider, but each piece of it has so
 
 Personally, I'm always feeling a little time-poor, so having the peace of mind that I can build and run something that will require absolutely minimal maintenance and continue building and running well into the future is high on my list of things that influence my technical decision-making.
 
-As the saying goes, [choosing boring, stable technology](https://boringtechnology.club) has major benefits! Longevity is a benefit more consequential than we may often give it credit for.
+I'm reminded a a Freakonomics podcast episode titled [In Praise of Maintenance](https://freakonomics.com/podcast/in-praise-of-maintenance/) which talks about the importance of maintenance for a well-functioning society, and our current obsession with innovation. Yes, new ideas are important, but so is sustainability! I'd say society is tipping pretty strongly towards innovation at this time, so let's all do a bit to nudge things back in the other direction.
+
+As the saying goes, [choosing boring, stable technology](https://boringtechnology.club) has major benefits! Longevity is a benefit more consequential than we may often give it credit for. Think about the maintenance required for the things you put out into the world, and choose tools and techniques that will minimize that burden.
+
+Your future self, and anyone else that must work on that software, will thank you.
 
