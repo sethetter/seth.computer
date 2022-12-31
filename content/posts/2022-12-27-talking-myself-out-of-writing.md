@@ -6,6 +6,11 @@ date = 2022-12-27
 
 [taxonomies]
 tags = ["writing"]
+
+[extra]
+links = [
+  { name = "Fediverse", url = "https://sethetter.social/@seth/109586472997149966" },
+]
 +++
 
 I'm a big believer in the power of writing. Simply taking five minutes to write

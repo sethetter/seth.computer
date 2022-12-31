@@ -93,7 +93,7 @@ repo](https://github.com/sethetter/dotfiles/tree/12a1469853e575ea7386850c3c3e07e
 dependencies. It also has a command for initializing a new project, which we
 can use with the following `nix-shell` command.
 
-```shell
+```bash
 $ nix-shell -p ghc --run "cabal init"
 ```
 
@@ -195,7 +195,7 @@ find out. This tool [can do a whole lot more](https://downloads.haskell.org/~ghc
 To make our experience even better, we can have a file called `.ghci` in our
 project root which will run some commands when `ghci` starts up.
 
-```shell
+```bash
 -- .ghci
 :set -fwarn-unused-binds -fward-unused-imports
 :add src/MyLib.hs src/Main.hs test/Spec.hs
@@ -223,7 +223,7 @@ within a nix-shell. I also pass a command to it so it knows how to run my test
 suite upon successful compilation (which I'll talk about more in the next
 section).
 
-```shell
+```bash
 $ nix-shell --run "ghcid --test Spec.run"
 ```
 
@@ -316,14 +316,14 @@ an executable with cabal (or nix) and run it.
 
 To build and run it with cabal..
 
-```shell
+```bash
 $ cabal v2-build
 $ cabal v2-run your-executable
 ```
 
 To build it with nix..
 
-```shell
+```bash
 $ nix-build
 ```
 
