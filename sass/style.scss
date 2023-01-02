@@ -13,6 +13,17 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: "Lora";
+  src: local("Lora"), url("/fonts/Lora-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Lora";
+  src: local("Lora"), url("/fonts/Lora-Italic-VariableFont_wght.ttf");
+  font-style: italic;
+}
+
 /**
  * TODO: Sassify this!
  */
@@ -26,6 +37,10 @@ body {
   margin: 0px auto 0px auto;
   padding: 0 15px;
   max-width: 700px;
+}
+
+#content article .body {
+  font-family: Lora, "Source Serif Pro", sans;
 }
 
 ul.post-list {
