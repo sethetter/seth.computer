@@ -14,13 +14,30 @@
 }
 
 @font-face {
-  font-family: "Lora";
-  src: local("Lora"), url("/fonts/Lora-VariableFont_wght.ttf");
+  font-family: "Source Serif Pro";
+  src: local("Source Serif Pro"), url("/fonts/SourceSerifPro-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Lora";
-  src: local("Lora"), url("/fonts/Lora-Italic-VariableFont_wght.ttf");
+  font-family: "Source Serif Pro";
+  src: local("Source Serif Pro"), url("/fonts/SourceSerifPro-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Source Serif Pro";
+  src: local("Source Serif Pro"), url("/fonts/SourceSerifPro-Italic.ttf");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Source Serif Pro";
+  src: local("Source Serif Pro"), url("/fonts/SourceSerifPro-BoldItalic.ttf");
+  font-weight: bold;
   font-style: italic;
 }
 
@@ -40,7 +57,7 @@ body {
 }
 
 #content article .body {
-  font-family: Lora, "Source Serif Pro", sans;
+  font-family: "Source Serif Pro", sans;
 }
 
 ul.post-list {
