@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <title>Seth Etter &mdash; builder of web things</title>
+
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div id="header">
+      <div id="logo">
+        <a href="/"
+          ><strong>seth etter</strong>&nbsp;<small><em>dot</em></small
+          >&nbsp;&nbsp;<strong>com</strong></a
+        >
+      </div>
+      <div id="navigation">
+        <ul>
+          <li>
+            <a href="https://github.com/sethetter">github</a>
+          </li>
+      </div>
+    </div>
+
+    <main class="container">
+      <div id="content">
+        {{ content | safe }}
+      </div>
+    </main>
+
+    <footer id="footer">
+      Created and maintained by
+      <a href="https://sethetter.com">Seth Etter</a>.
+    </footer>
+
+    <script
+      src="https://cdn.usefathom.com/script.js"
+      data-site="HRUUKZPR"
+      defer
+    ></script>
+  </body>
+</html>
