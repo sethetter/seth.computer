@@ -1,6 +1,6 @@
 import lume from "lume/mod.ts";
 import feed from "lume/plugins/feed.ts";
-import mditAttrs from "npm:@mdit/plugin-attrs";
+import { attrs } from "npm:@mdit/plugin-attrs";
 
 const site = lume();
 
@@ -17,7 +17,7 @@ site.use(feed());
 /**
  * Enable attributes in markdown files.
  */
-site.hooks.addMarkdownItPlugin(mditAttrs);
+site.hooks.addMarkdownItPlugin(attrs);
 
 /**
  * Static files.
