@@ -1,30 +1,31 @@
 ---
-layout: layout.njk
+title: builder of web things
+layout: layout.tsx
 ---
 
 # 👋 Hello! I'm Seth
 
 I'm a software engineer living in Wichita, KS.
 
-## Current status
+## Current status {#current-status}
 
 - Building things at [Zapier](https://zapier.com)
 - Organizing community at [devICT](https://devict.org)
 
-## Things I care about
+## Things I care about {#things-i-care-about}
 
 - Finding simple solutions to interesting problems
 - Fostering empathetic and collaborative environments
 - Leaving the world better than I found it
 
-## Things I enjoy
+## Things I enjoy {#things-i-enjoy}
 
 - Spending time with family, friends, and community
 - Learning things, and sharing that knowledge
 - Building things, ideally with other people
 - Music, games, food & drink, you know, the usual stuff
 
-## Things I've done
+## Things I've done {#things-ive-done}
 
 - **2012**: Started working full time in software
 - **2012**: Started [devICT](https://devict.org), Wichita's dev community
