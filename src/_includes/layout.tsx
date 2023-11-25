@@ -11,7 +11,7 @@ const navLinks: NavLink[] = [
   {
     url: "https://github.com/sethetter",
     label: "github",
-    title: "Seth Etter on Github",
+    title: "Seth Etter on GitHub",
   },
 ];
 
@@ -53,7 +53,19 @@ export default ({ title, children }: PageData) => (
       </main>
 
       <footer id="footer">
-        Created and maintained by <a href="https://sethetter.com">Seth</a>.
+        <p style="float: right; justify-text: right;">
+          <a
+            href="https://github.com/sethetter/sethetter.com"
+            title="sethetter.com source on GitHub"
+            target="_blank"
+          >
+            Source on GitHub
+          </a>
+          .
+        </p>
+        <p>
+          Created and maintained by <a href="https://sethetter.com">Seth</a>.
+        </p>
       </footer>
 
       <script
