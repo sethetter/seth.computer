@@ -1,4 +1,4 @@
-import { LinksPageData } from "./_data.ts";
+import { LinksPageData } from "$/links/_data.ts";
 
 export const title = "links i've collected";
 export const layout = "layout.tsx";
@@ -7,7 +7,7 @@ export default ({ links }: LinksPageData) => {
   return (
     <>
       <h1>Links I've collected</h1>
-      <ul className="list-none">
+      <ul className="post-list">
         {links.map((l) => (
           <li>
             <a href={l.url} title={`${l.title} by ${l.author}`}>

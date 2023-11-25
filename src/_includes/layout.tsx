@@ -6,6 +6,7 @@ type NavLink = {
   title: string;
 };
 const navLinks: NavLink[] = [
+  { url: "/posts", label: "posts", title: "Things I've written" },
   { url: "/links", label: "links", title: "Links I've collected" },
   {
     url: "https://github.com/sethetter",
@@ -52,8 +53,7 @@ export default ({ title, children }: PageData) => (
       </main>
 
       <footer id="footer">
-        Created and maintained by
-        <a href="https://sethetter.com">Seth Etter</a>.
+        Created and maintained by <a href="https://sethetter.com">Seth</a>.
       </footer>
 
       <script

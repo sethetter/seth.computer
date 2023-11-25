@@ -6,6 +6,7 @@
     "serve": "deno task lume -s"
   },
   "imports": {
+    "$/": "./src/",
     "lume/": "https://deno.land/x/lume@v1.18.5/"
   },
   "compilerOptions": {
