@@ -13,7 +13,7 @@ export default function (
 
   return (
     <>
-      <h1 class="title">Things I wrote down</h1>
+      <h1 class="title">Things I've written</h1>
       <ul class="post-list">
         {posts.map((post) => (
           <li>
