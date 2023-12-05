@@ -1,3 +1,6 @@
+@import "normalize.css";
+@import "prism-duotone-light.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 
