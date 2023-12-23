@@ -1,10 +1,6 @@
 @import "normalize.css";
 @import "prism-duotone-light.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities; 
-
 @font-face {
   font-family: "Lato";
   src: local("Lato"), url("/fonts/Lato-Regular.ttf");
@@ -45,9 +41,27 @@
   font-style: italic;
 }
 
+:root {
+  --color-light-gray: #f3f3f3;
+
+  --color-banana: #faf3dd;
+  --color-banana-light: #fffdf6;
+  --color-sage: #c8d5b9;
+  --color-mint: #8fc0a9;
+  --color-polar: #68b0ab;
+  --color-polar-dark: #477b77;
+  --color-polar-black: #3f6360;
+  --color-moss: #4a7c59;
+  --color-moss-dark: #3a6748;
+}
+
 ul.post-list {
   padding-left: 0;
   list-style: none;
+}
+
+ul.post-list li {
+  margin-bottom: 16px;
 }
 
 ul.post-list li a {
@@ -59,8 +73,8 @@ ul.post-list li em {
 }
 
 body {
-  background: #fdf6e3;
-  color: #657b83;
+  background-color: var(--color-banana-light);
+  color: var(--color-polar-dark);
   font-family: Lato, "Source Sans Pro", sans;
   font-size: 18px;
   line-height: 1.5em;
@@ -73,19 +87,14 @@ body {
   font-family: "Source Serif Pro", sans;
 }
 
-:root {
-  --green: #859900;
-  --dark-green: #6a7a00;
-}
-
-a {
-  color: var(--dark-green);
+a, a:visited {
+  color: var(--color-moss);
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: var(--green);
+  color: var(--color-polar);
 }
 
 div#header {
@@ -101,10 +110,24 @@ div#navigation {
 }
 
 div#logo a {
-  color: black;
   float: left;
   font-size: 18px;
   text-decoration: none;
+}
+
+div#header div#logo a,
+div#header div#logo a:visited {
+  color: var(--color-moss-dark);
+}
+
+div#header a,
+div#header a:visited {
+  color: var(--color-moss);
+}
+
+div#header a:active,
+div#header a:hover {
+  color: var(--color-polar);
 }
 
 div#header #navigation {
@@ -121,7 +144,6 @@ div#header #navigation ul li {
 }
 
 div#header #navigation a {
-  color: black;
   font-size: 16px;
   margin-left: 12px;
   text-decoration: none;
@@ -143,7 +165,7 @@ h4,
 h5 {
   font-family: Lato, sans;
   font-weight: bold;
-  color: #555;
+  color: var(--color-polar-black);
 }
 
 h1 {
@@ -163,7 +185,7 @@ div.info {
 body pre {
   font-size: 0.8em;
   line-height: 1.5em;
-  background: #f3f3f3;
+  background: var(--color-light-gray);
   overflow-x: scroll;
   padding: 10px 15px;
 }
@@ -172,7 +194,7 @@ blockquote {
   border-left: 10px solid #eee;
   margin-left: 0;
   padding-left: 30px;
-  color: #888;
+  color: var(--color-polar-dark);
   font-size: 1.1em;
   line-height: 1.5em;
 }
@@ -186,7 +208,7 @@ section.header {
   margin: 0;
   font-size: 16px;
   padding-bottom: 15px;
-  color: #888;
+  color: var(--color-polar-dark);
   border-bottom: solid 1px #d9d9d9;
 }
 
@@ -201,7 +223,7 @@ section.header {
 }
 
 code {
-  color: #c00;
+  color: var(--color-polar-dark);
   font-size: 0.9em;
   background: #eee;
   padding: 1px 4px;

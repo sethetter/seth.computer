@@ -12,12 +12,21 @@ export default ({ links }: LinksPageData) => {
           <li>
             <a href={l.url} title={`${l.title} by ${l.author}`}>
               {l.title}
-            </a>
+            </a>{" "}
             <small>
               &mdash; <em>by {l.author}</em>
             </small>
             <br />
-            <small>{l.tags.join(", ")}</small>
+            {l.tags.map((tag: string) => (
+              <>
+                <span class="tag">
+                  <a href={`/tags/${tag}`} title={`Tagged posts: ${tag}`}>
+                    {tag}
+                  </a>
+                </span>
+                &nbsp;
+              </>
+            ))}
           </li>
         ))}
       </ul>

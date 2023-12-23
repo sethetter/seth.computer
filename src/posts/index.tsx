@@ -27,7 +27,16 @@ export default function (
               </em>
             </small>
             <br />
-            <small>{post?.data.tags.join(", ")}</small>
+            {post?.data.tags.map((tag: string) => (
+              <>
+                <span class="tag">
+                  <a href={`/tags/${tag}`} title={`Tagged posts: ${tag}`}>
+                    {tag}
+                  </a>
+                </span>
+                &nbsp;
+              </>
+            ))}
           </li>
         ))}
       </ul>
