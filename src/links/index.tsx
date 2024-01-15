@@ -16,17 +16,6 @@ export default ({ links }: LinksPageData) => {
             <small>
               &mdash; <em>by {l.author}</em>
             </small>
-            <br />
-            {l.tags.map((tag: string) => (
-              <>
-                <span class="tag">
-                  <a href={`/tags/${tag}`} title={`Tagged posts: ${tag}`}>
-                    {tag}
-                  </a>
-                </span>
-                &nbsp;
-              </>
-            ))}
           </li>
         ))}
       </ul>
