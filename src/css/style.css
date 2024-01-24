@@ -41,18 +41,29 @@
   font-style: italic;
 }
 
+/**
+ * everforest (https://github.com/sainnhe/everforest)
+ */
 :root {
-  --color-light-gray: #f3f3f3;
+  --color-bg: #fdf6e3;
+  --color-fg: #5c6a72;
+  --color-blue: #3a94c5;
+  --color-statusline2: #708089;
+  --color-green: #8da101;
+  --color-gray0: #a6b0a0;
+  --color-gray2: #829181;
+}
 
-  --color-banana: #faf3dd;
-  --color-banana-light: #fffdf6;
-  --color-sage: #c8d5b9;
-  --color-mint: #8fc0a9;
-  --color-polar: #68b0ab;
-  --color-polar-dark: #477b77;
-  --color-polar-black: #3f6360;
-  --color-moss: #4a7c59;
-  --color-moss-dark: #3a6748;
+@media (prefers-color-scheme: dark) { 
+  :root {
+    --color-bg: #2d353b;
+    --color-fg: #d2c6aa;
+    --color-blue: #7fbbb3;
+    --color-statusline2: #d3c6aa;
+    --color-green: #a7c080;
+    --color-gray0: #7a8478;
+    --color-gray2: #9da9a0;
+  }
 }
 
 ul.post-list {
@@ -69,12 +80,12 @@ ul.post-list li a {
 }
 
 ul.post-list li em {
-  color: #999;
+  color: var(--color-gray0);
 }
 
 body {
-  background-color: var(--color-banana-light);
-  color: var(--color-polar-dark);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
   font-family: Lato, "Source Sans Pro", sans;
   font-size: 18px;
   line-height: 1.5em;
@@ -88,17 +99,17 @@ body {
 }
 
 a, a:visited {
-  color: var(--color-moss);
+  color: var(--color-green);
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: var(--color-polar);
+  color: var(--color-blue);
 }
 
 div#header {
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid var(--color-gray0);
   margin-bottom: 30px;
   padding: 12px 0px 12px 0px;
   display: flex;
@@ -117,17 +128,17 @@ div#logo a {
 
 div#header div#logo a,
 div#header div#logo a:visited {
-  color: var(--color-moss-dark);
+  color: var(--color-gray2);
 }
 
 div#header a,
 div#header a:visited {
-  color: var(--color-moss);
+  color: var(--color-green);
 }
 
 div#header a:active,
 div#header a:hover {
-  color: var(--color-polar);
+  color: var(--color-blue);
 }
 
 div#header #navigation {
@@ -151,8 +162,8 @@ div#header #navigation a {
 }
 
 #footer {
-  border-top: solid 1px #aaa;
-  color: #555;
+  border-top: solid 1px var(--color-gray0);
+  color: var(--color-gray2);
   font-size: 12px;
   margin-top: 30px;
   padding: 12px 0px 12px 0px;
@@ -165,7 +176,7 @@ h4,
 h5 {
   font-family: Lato, sans;
   font-weight: bold;
-  color: var(--color-polar-black);
+  color: var(--color-statusline2);
 }
 
 h1 {
@@ -177,7 +188,7 @@ h2 {
 }
 
 div.info {
-  color: #555;
+  color: var(--color-gray2);
   font-size: 14px;
   font-style: italic;
 }
@@ -185,47 +196,49 @@ div.info {
 body pre {
   font-size: 0.8em;
   line-height: 1.5em;
-  background: var(--color-light-gray);
+  background: var(--color-gray0);
   overflow-x: scroll;
   padding: 10px 15px;
 }
 
 blockquote {
-  border-left: 10px solid #eee;
+  border-left: 10px solid var(--color-gray0);
   margin-left: 0;
   padding-left: 30px;
-  color: var(--color-polar-dark);
+  color: var(--color-fg);
   font-size: 1.1em;
   line-height: 1.5em;
 }
 
 hr {
   border: 0;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid var(--color-gray0);
 }
 
 section.header {
   margin: 0;
   font-size: 16px;
   padding-bottom: 15px;
-  color: var(--color-polar-dark);
-  border-bottom: solid 1px #d9d9d9;
+  color: var(--color-fg);
+  border-bottom: solid 1px var(--color-gray2);
 }
 
 .tag {
   font-size: 0.6em;
-  padding: 1px 5px 3px 5px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background: #eee;
-  color: #888;
+  color: var(--color-gray0);
   white-space: nowrap;
 }
 
+.tag a:link,
+.tag a:visited,
+.tag a:active {
+  color: var(--color-gray2);
+}
+
 code {
-  color: var(--color-polar-dark);
+  color: var(--color-fg);
   font-size: 0.9em;
-  background: #eee;
+  background: var(--color-gray0);
   padding: 1px 4px;
   border-radius: 5px;
 }
