@@ -26,17 +26,6 @@ export default function (
                 <span>{helpers.date(post?.data.date, "DATE")}</span>
               </em>
             </small>
-            <br />
-            {post?.data.tags.map((tag: string) => (
-              <>
-                <span class="tag">
-                  <a href={`/tags/${tag}`} title={`Tagged posts: ${tag}`}>
-                    {tag}
-                  </a>
-                </span>
-                &nbsp;
-              </>
-            ))}
           </li>
         ))}
       </ul>

@@ -6,11 +6,17 @@ type NavLink = {
   title: string;
 };
 const navLinks: NavLink[] = [
+  { url: "/posts", label: "posts", title: "Things I've written" },
   { url: "/links", label: "links", title: "Links I've collected" },
   {
     url: "https://github.com/sethetter",
-    label: "github",
+    label: "code",
     title: "Seth Etter on GitHub",
+  },
+  {
+    url: "https://mastodon.social/@sethetter",
+    label: "social",
+    title: "Seth Etter on Mastodon",
   },
 ];
 
