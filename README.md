@@ -2,7 +2,7 @@
 
 A repo for my personal website. Completely rewritten on a whim several times over the years, as you do.
 
-## Built with
+## Currently built with
 
 - [Deno](https://deno.land) (lang)
 - [Lume](https://lume.land) (SSG)
