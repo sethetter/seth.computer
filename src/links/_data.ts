@@ -60,4 +60,10 @@ export const links = [
     author: "Dan McKinley",
     tags: ["software"],
   },
+  {
+    title: "Parse, don't validate",
+    url: "https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/",
+    author: "Alexis King",
+    tags: ["programming", "design"],
+  },
 ];
