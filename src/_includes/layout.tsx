@@ -1,5 +1,3 @@
-import { PageData } from "lume/core.ts";
-
 type NavLink = {
   url: string;
   label: string;
@@ -20,7 +18,7 @@ const navLinks: NavLink[] = [
   },
 ];
 
-export default ({ title, children }: PageData) => (
+export default ({ title, children }: Lume.Data) => (
   <html lang="en">
     <head>
       <title>Seth Etter &mdash; {title}</title>

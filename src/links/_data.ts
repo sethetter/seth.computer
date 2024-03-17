@@ -1,6 +1,4 @@
-import type { PageData } from "lume/core.ts";
-
-export interface LinksPageData extends PageData {
+export interface LinksPageData extends Lume.Data {
   links: Link[];
 }
 
