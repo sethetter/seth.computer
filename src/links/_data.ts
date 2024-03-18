@@ -64,4 +64,10 @@ export const links = [
     author: "Alexis King",
     tags: ["programming", "design"],
   },
+  {
+    title: "Type Safety Back and Forth",
+    url: "https://www.parsonsmatt.org/2017/10/11/type_safety_back_and_forth.html",
+    author: "Matt Parsons",
+    tags: ["programming", "types", "design"],
+  },
 ];
