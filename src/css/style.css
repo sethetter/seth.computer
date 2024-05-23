@@ -54,7 +54,7 @@
   --color-gray2: #829181;
 }
 
-@media (prefers-color-scheme: dark) { 
+@media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #2d353b;
     --color-fg: #d2c6aa;
@@ -72,7 +72,7 @@ ul.post-list {
 }
 
 ul.post-list li {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 ul.post-list li a {
@@ -98,7 +98,8 @@ body {
   font-family: "Source Serif Pro", sans;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: var(--color-green);
   text-decoration: none;
 }
