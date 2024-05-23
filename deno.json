@@ -8,7 +8,7 @@
   },
   "imports": {
     "$/": "./src/",
-    "lume/": "https://deno.land/x/lume@v2.1.2/"
+    "lume/": "https://deno.land/x/lume@v2.2.0/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
