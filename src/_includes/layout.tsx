@@ -23,6 +23,9 @@ export default ({ title, children }: Lume.Data) => (
     <head>
       <title>Seth Etter &mdash; {title}</title>
 
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
       <link rel="shortcut icon" href="/img/favicon.ico" />
 
       <link rel="stylesheet" href="/css/style.css" />

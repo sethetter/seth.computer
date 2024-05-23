@@ -83,6 +83,22 @@ ul.post-list li em {
   color: var(--color-gray0);
 }
 
+ul.post-list li .subtext::before {
+  content: " —  ";
+  font-size: 0.8em;
+  color: var(--color-gray0);
+}
+
+@media (max-width: 600px) {
+  ul.post-list li .subtext::before {
+    content: "";
+  }
+
+  ul.post-list li .subtext {
+    display: block;
+  }
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);

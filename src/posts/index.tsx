@@ -14,12 +14,13 @@ export default function ({ search }: Lume.Data, helpers: Lume.Helpers) {
             <a href={data.url} title={data.title}>
               {data.title}
             </a>{" "}
-            <small>
-              <em>
-                &mdash;&nbsp;
-                <span>{helpers.date(data.date, "DATE")}</span>
-              </em>
-            </small>
+            <span class="subtext">
+              <small>
+                <em>
+                  <span>{helpers.date(data.date, "DATE")}</span>
+                </em>
+              </small>
+            </span>
           </li>
         ))}
       </ul>
