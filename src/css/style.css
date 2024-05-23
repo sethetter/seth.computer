@@ -51,6 +51,7 @@
   --color-statusline2: #708089;
   --color-green: #8da101;
   --color-gray0: #a6b0a0;
+  --color-gray1: #eeeeee;
   --color-gray2: #829181;
 }
 
@@ -62,6 +63,7 @@
     --color-statusline2: #d3c6aa;
     --color-green: #a7c080;
     --color-gray0: #7a8478;
+    --color-gray1: #555555;
     --color-gray2: #9da9a0;
   }
 }
@@ -255,7 +257,7 @@ section.header {
 code {
   color: var(--color-fg);
   font-size: 0.9em;
-  background: var(--color-gray0);
+  background: var(--color-gray1);
   padding: 1px 4px;
   border-radius: 5px;
 }
