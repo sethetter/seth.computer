@@ -15,7 +15,7 @@ import "npm:prismjs@1.29.0/components/prism-haskell.js";
 import "npm:prismjs@1.29.0/components/prism-typescript.js";
 import "npm:prismjs@1.29.0/components/prism-rust.js";
 
-const site = lume({ src: "./src" });
+const site = lume({ src: "./src", location: new URL("https://sethetter.com") });
 
 site.ignore("README.md", "netlify.toml", "netlify-build.sh");
 
