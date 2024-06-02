@@ -24,8 +24,9 @@ site.use(
     output: ["feed.rss", "posts.rss"],
     query: "url^=/posts/ url!=/posts/",
     info: {
-      title: "sethetter.com &mdash; Posts",
-      description: "Things written by Seth, mostly about programming.",
+      title: "sethetter.com",
+      description:
+        "Things written or shared by Seth, mostly about programming.",
       lang: "en",
     },
     items: {
