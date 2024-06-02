@@ -19,7 +19,23 @@ const site = lume({ src: "./src" });
 
 site.ignore("README.md", "netlify.toml", "netlify-build.sh");
 
-site.use(feed());
+site.use(
+  feed({
+    output: ["feed.rss", "posts.rss"],
+    query: "url^=/posts/ url!=/posts/",
+    info: {
+      title: "sethetter.com &mdash; Posts",
+      description: "Things written by Seth, mostly about programming.",
+      lang: "en",
+    },
+    items: {
+      title: "=title", // The title of every item
+      description: "=excerpt", // The description of every item
+      published: "=date", // The publishing date of every item
+      content: "=children", // The content of every item
+    },
+  }),
+);
 
 site.use(date());
 
