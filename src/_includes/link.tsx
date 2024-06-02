@@ -18,7 +18,7 @@ const render: PageFn = ({ link, author, title, tags, children }) => {
       <h1>{postLink(title)}</h1>
       <article>
         <section class="header">
-          By {author}, on{" "}
+          By {author} &mdash;{" "}
           <a href={linkOrigin} title={linkHost}>
             {linkHost}
           </a>
