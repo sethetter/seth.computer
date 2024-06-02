@@ -243,15 +243,26 @@ section.header {
 }
 
 .tag {
-  font-size: 0.6em;
+  font-size: 0.8em;
+  display: inline-block;
+  padding-right: 5px;
   color: var(--color-gray0);
   white-space: nowrap;
+}
+
+.tag::before {
+  content: "#";
+  color: var(--color-gray2);
 }
 
 .tag a:link,
 .tag a:visited,
 .tag a:active {
   color: var(--color-gray2);
+}
+
+.tag a:hover {
+  color: var(--color-blue);
 }
 
 code {

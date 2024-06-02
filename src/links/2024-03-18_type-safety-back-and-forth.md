@@ -5,5 +5,3 @@ author: "Matt Parsons"
 tags: ["programming", "types", "design"]
 layout: "link.tsx"
 ---
-
-Here's a link I think is worth sharing.

@@ -5,5 +5,3 @@ author: "Julia Evans"
 tags: ["programming"]
 layout: "link.tsx"
 ---
-
-Here's a link I think is worth sharing.

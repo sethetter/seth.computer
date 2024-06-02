@@ -3,16 +3,26 @@ import { PageFn } from "$/_types.ts";
 export const layout = "layout.tsx";
 
 const render: PageFn = ({ link, author, title, tags, children }) => {
+  if (!title) throw new Error("expected title");
+
+  const linkHost = new URL(link).host;
+  const linkOrigin = new URL(link).origin;
+
   const postLink = (text?: string) => (
     <a href={link} title={`${title} by ${author}`}>
-      {text ?? title ?? "Missing title"}
+      {text ?? title}
     </a>
   );
   return (
     <>
-      <h1>Link: {postLink(title)}</h1>
+      <h1>{postLink(title)}</h1>
       <article>
         <section class="header">
+          By {author}, on{" "}
+          <a href={linkOrigin} title={linkHost}>
+            {linkHost}
+          </a>
+          <br />
           {tags?.map((tag) => (
             <>
               <span class="tag">

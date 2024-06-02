@@ -5,5 +5,3 @@ author: "Alexis King"
 tags: ["programming", "design"]
 layout: "link.tsx"
 ---
-
-Here's a link I think is worth sharing.

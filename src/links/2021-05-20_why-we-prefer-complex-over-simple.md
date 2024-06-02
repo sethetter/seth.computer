@@ -5,5 +5,3 @@ author: "Farnam Street"
 tags: ["programming", "thinking"]
 layout: "link.tsx"
 ---
-
-Here's a link I think is worth sharing.

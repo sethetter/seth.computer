@@ -5,5 +5,3 @@ author: "Gergely Orosz"
 tags: ["programming", "product"]
 layout: "link.tsx"
 ---
-
-Here's a link I think is worth sharing.

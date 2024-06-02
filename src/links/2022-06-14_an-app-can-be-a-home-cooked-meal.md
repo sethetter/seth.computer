@@ -5,5 +5,3 @@ author: "Robin Sloan"
 tags: ["software"]
 layout: "link.tsx"
 ---
-
-Here's a link I think is worth sharing.
