@@ -27,5 +27,3 @@ export default function ({ search }: Lume.Data, helpers: Lume.Helpers) {
     </>
   );
 }
-
-// TODO: add a /posts/rss.xml file! then do the same for links, and one for all of it at /rss.xml

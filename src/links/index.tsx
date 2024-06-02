@@ -1,9 +1,9 @@
-import { LinksPageData } from "$/links/_data.ts";
-
 export const title = "links i've collected";
 export const layout = "layout.tsx";
 
-export default ({ links }: LinksPageData) => {
+export default function ({ search }: Lume.Data) {
+  const links = search.pages("url^=/links/ url!=/links/", "date=desc");
+
   return (
     <>
       <h1>Links I've collected</h1>
@@ -23,4 +23,4 @@ export default ({ links }: LinksPageData) => {
       </ul>
     </>
   );
-};
+}
