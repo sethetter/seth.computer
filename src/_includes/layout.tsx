@@ -56,16 +56,26 @@ export default ({ title, children }: Lume.Data) => (
       <footer id="footer">
         <p style="float: right; justify-text: right;">
           <a
+            href="https://sethetter.com/feed.rss"
+            title="RSS feed for sethetter.com"
+          >
+            {" "}
+            RSS feed
+          </a>
+          {" | "}
+          <a
             href="https://github.com/sethetter/sethetter.com"
             title="sethetter.com source on GitHub"
             target="_blank"
           >
-            Source on GitHub
+            Source code
           </a>
-          .
         </p>
         <p>
-          Created and maintained by <a href="https://sethetter.com">Seth</a>.
+          Created and maintained by{" "}
+          <a rel="me" href="https://sethetter.com">
+            Seth
+          </a>
         </p>
       </footer>
 
