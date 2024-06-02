@@ -21,7 +21,7 @@ site.ignore("README.md", "netlify.toml", "netlify-build.sh");
 
 site.use(
   feed({
-    output: ["feed.rss", "posts.rss"],
+    output: ["feed.rss", "feed.json", "posts.rss", "posts.json"],
     query: "url^=/posts/ url!=/posts/",
     info: {
       title: "sethetter.com",
