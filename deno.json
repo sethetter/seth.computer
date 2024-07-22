@@ -8,13 +8,12 @@
   },
   "imports": {
     "$/": "./src/",
-    "lume/": "https://deno.land/x/lume@v2.2.0/"
+    "lume/": "https://deno.land/x/lume@v2.2.4/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "npm:preact",
-    "types": [
-      "lume/types.ts"
-    ]
-  }
+    "types": ["lume/types.ts"]
+  },
+  "unstable": ["temporal"]
 }
