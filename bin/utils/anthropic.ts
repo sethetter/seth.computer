@@ -1,10 +1,5 @@
-import {
-  Type,
-  type TSchema,
-  type Static,
-  TypeBoxError,
-} from "@sinclair/typebox";
-import { Value, ValueError } from "@sinclair/typebox/value";
+import { Type, type Static, type TSchema } from "@sinclair/typebox";
+import { Value } from "@sinclair/typebox/value";
 
 const ANTHROPIC_API_KEY = Deno.env.get("ANTHROPIC_API_KEY");
 const ANTHROPIC_URL = "https://api.anthropic.com";
@@ -19,6 +14,22 @@ interface LlmTool {
 
 /**
  * Extracts data from content using a tool from the LLM.
+ *
+ * @example
+ * const extractDataFromContent = {
+ *   name: "save_data_from_article_content",
+ *   description: "Saves data from the content of an article in the expected input format.",
+ *   input_schema: Type.Object({
+ *     article_author: Type.String(),
+ *     article_title: Type.String(),
+ *     article_slug: Type.String({
+ *       description: "A hyphenated lowercase alphanumeric slug from the title of the article.",
+ *     }),
+ *   }),
+ * };
+ *
+ * const data = await useTool(articleContent, extractDataFromContent);
+ * console.log(`${data.article_slug}: ${data.article_title} by ${data.article_author}`);
  */
 export async function useTool<TTool extends LlmTool = LlmTool>(
   content: string,
@@ -45,7 +56,7 @@ export async function useTool<TTool extends LlmTool = LlmTool>(
       tools: [
         {
           ...tool,
-          // Convert this from a typebox schema to a JSON schema.
+          // Type.Strict returns the actual JSON schema object.
           input_schema: Type.Strict(tool.input_schema),
         },
       ],
