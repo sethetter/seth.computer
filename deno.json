@@ -8,6 +8,7 @@
   },
   "imports": {
     "$/": "./src/",
+    "@sinclair/typebox": "npm:@sinclair/typebox@^0.32.35",
     "lume/": "https://deno.land/x/lume@v2.2.4/"
   },
   "compilerOptions": {
