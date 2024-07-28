@@ -1,6 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { useTool } from "./anthropic.ts";
-import { getUrlContent } from "./firecrawl.ts";
+import { Anthropic, Firecrawl } from "@seth/llm-utils";
 
 export interface LinkData {
   title: string;
@@ -17,7 +16,7 @@ export interface LinkData {
  * console.log(`Article author: ${linkData.author}`);
  */
 export async function getLinkData(url: string): Promise<LinkData> {
-  const scrapeResp = await getUrlContent(url);
+  const scrapeResp = await Firecrawl.getUrlContent(url);
   return await extractDataFromContent(scrapeResp.data.markdown);
 }
 
@@ -39,7 +38,7 @@ async function extractDataFromContent(content: string): Promise<LinkData> {
     }),
   };
 
-  const data = await useTool(content, linkDataExtractionTool);
+  const data = await Anthropic.useTool(content, linkDataExtractionTool);
 
   return {
     title: data.article_title,

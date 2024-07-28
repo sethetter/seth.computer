@@ -4,10 +4,12 @@
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
     "build": "deno task lume",
     "serve": "deno task lume -s",
-    "upgrade": "deno task lume upgrade"
+    "upgrade": "deno task lume upgrade",
+    "new-link": "deno run --allow-net --allow-write --allow-env ./bin/new_link.ts"
   },
   "imports": {
     "$/": "./src/",
+    "@seth/llm-utils": "jsr:@seth/llm-utils@^0.0.5",
     "@sinclair/typebox": "npm:@sinclair/typebox@^0.32.35",
     "lume/": "https://deno.land/x/lume@v2.2.4/"
   },
