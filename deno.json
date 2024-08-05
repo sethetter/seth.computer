@@ -16,7 +16,11 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "npm:preact",
-    "types": ["lume/types.ts"]
+    "types": [
+      "lume/types.ts"
+    ]
   },
-  "unstable": ["temporal"]
+  "unstable": [
+    "temporal"
+  ]
 }
