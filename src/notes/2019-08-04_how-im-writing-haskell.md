@@ -1,7 +1,7 @@
 ---
 title: "How I'm currently writing Haskell"
 tags: ["programming", "haskell", "tools"]
-layout: "post.tsx"
+layout: "note.tsx"
 ---
 
 Recently, I decided to jump back into learning and exploring in the fun and

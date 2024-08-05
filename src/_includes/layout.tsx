@@ -4,7 +4,7 @@ type NavLink = {
   title: string;
 };
 const navLinks: NavLink[] = [
-  { url: "/posts", label: "posts", title: "Things I've written" },
+  { url: "/notes", label: "notes", title: "Things I've written" },
   { url: "/links", label: "links", title: "Links I've collected" },
   // {
   //   url: "/projects",
@@ -16,7 +16,7 @@ const navLinks: NavLink[] = [
 export default ({ title, children }: Lume.Data) => (
   <html lang="en">
     <head>
-      <title>Seth Etter &mdash; {title}</title>
+      <title>seth.computer &mdash; {title}</title>
 
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,11 +29,11 @@ export default ({ title, children }: Lume.Data) => (
       <div id="header">
         <div id="logo">
           <a href="/">
-            <strong>seth etter</strong>&nbsp;
+            <strong>seth</strong>&nbsp;
             <small>
               <em>dot</em>
             </small>
-            &nbsp;&nbsp;<strong>com</strong>
+            &nbsp;&nbsp;<strong>computer</strong>
           </a>
         </div>
         <div id="navigation">
@@ -55,20 +55,28 @@ export default ({ title, children }: Lume.Data) => (
 
       <footer id="footer">
         <p style="float: right; justify-text: right;">
-          <a
-            href="https://sethetter.com/feed.rss"
-            title="RSS feed for sethetter.com"
-          >
+          RSS:{" "}
+          <a href="/feed.rss" title="Full RSS feed for seth.computer">
             {" "}
-            RSS feed
+            full
+          </a>
+          {", "}
+          <a href="/notes.rss" title="Notes RSS feed for seth.computer">
+            {" "}
+            notes
+          </a>
+          {", "}
+          <a href="/links.rss" title="Links RSS feed for seth.computer">
+            {" "}
+            links
           </a>
           {" | "}
           <a
-            href="https://github.com/sethetter/sethetter.com"
-            title="sethetter.com source on GitHub"
+            href="https://github.com/sethetter/seth.computer"
+            title="seth.computer source on GitHub"
             target="_blank"
           >
-            Source code
+            source
           </a>
         </p>
         <p>

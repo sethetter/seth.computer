@@ -1,7 +1,7 @@
 ---
 title: "What makes an API simple?"
 tags: ["programming", "apis", "software"]
-layout: "post.tsx"
+layout: "note.tsx"
 ---
 
 I recently published a blog post for the [Ad Hoc

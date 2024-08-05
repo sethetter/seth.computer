@@ -1,16 +1,16 @@
 ---
-title: builder of web things
+title: notes on building software
 layout: layout.tsx
 ---
 
 # 👋 Hello! I'm Seth
 
-I'm a software engineer living in Wichita, KS.
+I'm a software engineer from Wichita, KS.
 
 ## Current status {#current-status}
 
 - Building things at [Zapier](https://zapier.com)
-- Organizing community at [devICT](https://devict.org)
+- Hanging out in [devICT](https://devict.org)
 
 ## Things I care about {#things-i-care-about}
 
@@ -27,6 +27,7 @@ I'm a software engineer living in Wichita, KS.
 
 ## Things I've done {#things-ive-done}
 
+<!-- TODO: Add more stuff in here! -->
 - **2012**: Started working full time in software
 - **2012**: Started [devICT](https://devict.org), Wichita's dev community
 - **2012**: Helped organize Wichita Startup Weekend events

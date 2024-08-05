@@ -15,18 +15,18 @@ import "npm:prismjs@1.29.0/components/prism-haskell.js";
 import "npm:prismjs@1.29.0/components/prism-typescript.js";
 import "npm:prismjs@1.29.0/components/prism-rust.js";
 
-const site = lume({ src: "./src", location: new URL("https://sethetter.com") });
+const site = lume({ src: "./src", location: new URL("https://seth.computer") });
 
 site.ignore("README.md", "netlify.toml", "netlify-build.sh");
 
 site.use(
   feed({
-    output: ["feed.rss", "feed.json", "posts.rss", "posts.json"],
-    query: "url^=/posts/ url!=/posts/",
+    output: ["feed.rss", "feed.json"],
+    query: "url^=/notes/|/links/ url!=/notes/|/links/",
     info: {
-      title: "sethetter.com",
+      title: "seth.computer",
       description:
-        "Things written or shared by Seth, mostly about programming.",
+        "Things I've written, things I've shared, maybe new categories of stuff in the future. Who knows!",
       lang: "en",
     },
     items: {
@@ -35,7 +35,44 @@ site.use(
       published: "=date", // The publishing date of every item
       content: "=children", // The content of every item
     },
-  }),
+  })
+);
+
+site.use(
+  feed({
+    output: ["notes.rss", "notes.json"],
+    query: "url^=/notes/ url!=/notes/",
+    info: {
+      title: "seth.computer - notes",
+      description: "Things I've written, mostly about programming.",
+      lang: "en",
+    },
+    items: {
+      title: "=title", // The title of every item
+      description: "=excerpt", // The description of every item
+      published: "=date", // The publishing date of every item
+      content: "=children", // The content of every item
+    },
+  })
+);
+
+site.use(
+  feed({
+    output: ["links.rss", "links.json"],
+    query: "url^=/links/ url!=/links/",
+    info: {
+      title: "seth.computer - Links",
+      description:
+        "Interesting reads from around the interwebs that I've found worth sharing.",
+      lang: "en",
+    },
+    items: {
+      title: "=title", // The title of every item
+      description: "=excerpt", // The description of every item
+      published: "=date", // The publishing date of every item
+      content: "=children", // The content of every item
+    },
+  })
 );
 
 site.use(date());
@@ -45,7 +82,7 @@ site.use(
     options: {
       plugins: [typography],
     },
-  }),
+  })
 );
 site.use(postcss());
 

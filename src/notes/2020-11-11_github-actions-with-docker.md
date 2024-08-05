@@ -1,7 +1,7 @@
 ---
 title: "Custom GitHub Actions with Docker"
 tags: ['programming', "tools"] 
-layout: "post.tsx"
+layout: "note.tsx"
 links: [
   { name: "Hacker News", url = "https://news.ycombinator.com/item?id=25066079" },
   { name: "Twitter", url = "https://twitter.com/sethetter/status/1326729005337341953" },
@@ -34,7 +34,7 @@ Needless to say, I simply sidestepped the marketplace and found the [documentati
 
 I stumbled through this quite a bit, but ultimately am happy with the approach. I'm able to have a `Dockerfile` and custom [`entrypoint.sh`](https://docs.docker.com/engine/reference/builder/#entrypoint) file that can receive inputs via env vars from the action configuration. I'm also able to pipe secrets, stored in my GitHub repo, into the action from the workflow file.
 
-### [The action file](https://github.com/sethetter/sethetter.com/blob/1e916825348e2ee2f401b5204811c18e394432e3/.github/actions/build-and-deploy/action.yml)
+### [The action file](https://github.com/sethetter/seth.computer/blob/1e916825348e2ee2f401b5204811c18e394432e3/.github/actions/build-and-deploy/action.yml)
 
 ```yaml
 # .github/actions/build-and-deploy/action.yml
@@ -74,7 +74,7 @@ The implication here is that any steps in your action that require one of these 
 
 ### Docker setup
 
-The [Dockerfile](https://github.com/sethetter/sethetter.com/blob/4fdf1675084628f6ddd3aaa31aaa05a1a118b1d6/.github/actions/build-and-deploy/Dockerfile) is pretty minimal, simply setting up the base environment I want, which is `node:lts` in this case, and then copy in my custom `[entrypoint.sh](http://entrypoint.sh)` script.
+The [Dockerfile](https://github.com/sethetter/seth.computer/blob/4fdf1675084628f6ddd3aaa31aaa05a1a118b1d6/.github/actions/build-and-deploy/Dockerfile) is pretty minimal, simply setting up the base environment I want, which is `node:lts` in this case, and then copy in my custom `[entrypoint.sh](http://entrypoint.sh)` script.
 
 ```yaml
 # .github/actions/build-and-deploy/Dockerfile
@@ -85,7 +85,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 **Tip!** [Don't set a `WORKDIR`](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/dockerfile-support-for-github-actions#workdir). The action sets the workdir to the `$GITHUB_WORKSPACE` variable which is where your project source will be located.
 
-All the action happens in the [`entrypoint.sh`](https://github.com/sethetter/sethetter.com/blob/1e916825348e2ee2f401b5204811c18e394432e3/.github/actions/build-and-deploy/entrypoint.sh) file.
+All the action happens in the [`entrypoint.sh`](https://github.com/sethetter/seth.computer/blob/1e916825348e2ee2f401b5204811c18e394432e3/.github/actions/build-and-deploy/entrypoint.sh) file.
 
 ```yaml
 # .github/actions/build-and-deploy/entrypoint.sh
@@ -108,7 +108,7 @@ netlify deploy \
 
 You can see here we're referencing the `env` vars we defined in our action file. Originally I had the zola and netlify install steps happening in the `Dockerfile`, but due to the inability to pass build args to the image, I wasn't able to get the `$ZOLA_VERSION` passed in. Once I had that realization, it seemed just as viable to put everything in `entrypoint.sh`.
 
-### [The workflow file](https://github.com/sethetter/sethetter.com/blob/4fdf1675084628f6ddd3aaa31aaa05a1a118b1d6/.github/workflows/build-and-deploy.yml)
+### [The workflow file](https://github.com/sethetter/seth.computer/blob/4fdf1675084628f6ddd3aaa31aaa05a1a118b1d6/.github/workflows/build-and-deploy.yml)
 
 ```yaml
 # .github/workflows/build-and-deploy.yml

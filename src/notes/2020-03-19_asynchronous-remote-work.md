@@ -1,7 +1,7 @@
 ---
 title: "Asynchronous remote work"
 tags: ["productivity", "teams", "remote"]
-layout: "post.tsx"
+layout: "note.tsx"
 ---
 
 This page contains some of my personal processes, tips, guidance, advice, etc, regarding working and collaborating **remotely** and **asynchronously**.

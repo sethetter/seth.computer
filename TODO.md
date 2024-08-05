@@ -1,5 +1,5 @@
 - Site search
-- Lower overhead for creating new posts
+- Lower overhead for creating new notes
 - Create a projects page
 - Create tag pages
 - Expand links data to include notes

@@ -1,7 +1,7 @@
 ---
 title: "Prioritize learning"
 tags: ["teams", "productivity"]
-layout: "post.tsx"
+layout: "note.tsx"
 ---
 
 The collective knowledge of a team’s individual members is one of its most valuable assets. Whether solving individual problems or making high-level strategic decisions, that collective knowledge will enable better results. It should go without saying then that taking time to make the most of that collective knowledge is a worthy investment.

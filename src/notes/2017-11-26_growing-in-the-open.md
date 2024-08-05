@@ -1,7 +1,7 @@
 ---
 title: "Growing in the open"
 tags: ["learning", "writing", "personal"]
-layout: "post.tsx"
+layout: "note.tsx"
 ---
 
 I started writing online pretty early in my journey as a developer. I've known

@@ -1,7 +1,7 @@
 ---
 title: "Building for longevity"
 tags: ["software", "programming"]
-layout: "post.tsx"
+layout: "note.tsx"
 ---
 
 I spend an inordinate amount of time thinking about what languages and tools to work with. There are so many objective tradeoffs to consider, and some not insignificant portion of the decision that falls to personal preference, which I have an unusually hard time sorting out.

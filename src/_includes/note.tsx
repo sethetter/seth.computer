@@ -21,7 +21,7 @@ const render: PageFn = ({ links, date, title, tags, children }, helpers) => {
           {tags?.map((tag) => (
             <>
               <span class="tag">
-                <a href={`/tags/${tag}`} title={`Tagged posts: ${tag}`}>
+                <a href={`/tags/${tag}`} title={`Tagged notes: ${tag}`}>
                   {tag}
                 </a>
               </span>

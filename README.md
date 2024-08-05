@@ -1,4 +1,4 @@
-# sethetter.com
+# seth.computer
 
 A repo for my personal website. Completely rewritten on a whim several times over the years, as you do.
 
@@ -22,4 +22,4 @@ $ deno serve
 
 ## Deployment
 
-Hosted on [netlify](https://netlify.com). Commits to the `main` branch deploy to sethetter.com.
+Hosted on [netlify](https://netlify.com). Commits to the `main` branch deploy to seth.computer.
