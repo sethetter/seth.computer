@@ -89,7 +89,7 @@ export default ({ title, children }: Lume.Data) => (
 
       <script
         src="https://cdn.usefathom.com/script.js"
-        data-site="HRUUKZPR"
+        data-site="WGJIPWJG"
         defer
       ></script>
     </body>
