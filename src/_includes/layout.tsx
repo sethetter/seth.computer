@@ -56,11 +56,11 @@ export default ({ title, children }: Lume.Data) => (
       <footer id="footer">
         <p style="float: right; justify-text: right;">
           RSS:{" "}
-          <a href="/feed.rss" title="Full RSS feed for seth.computer">
+          {/* <a href="/feed.rss" title="Full RSS feed for seth.computer">
             {" "}
             full
           </a>
-          {", "}
+          {", "} */}
           <a href="/notes.rss" title="Notes RSS feed for seth.computer">
             {" "}
             notes

@@ -19,24 +19,24 @@ const site = lume({ src: "./src", location: new URL("https://seth.computer") });
 
 site.ignore("README.md", "netlify.toml", "netlify-build.sh");
 
-site.use(
-  feed({
-    output: ["feed.rss", "feed.json"],
-    query: "url^=/notes/|/links/ url!=/notes|/links",
-    info: {
-      title: "seth.computer",
-      description:
-        "Things I've written, things I've shared, maybe new categories of stuff in the future. Who knows!",
-      lang: "en",
-    },
-    items: {
-      title: "=title", // The title of every item
-      description: "=excerpt", // The description of every item
-      published: "=date", // The publishing date of every item
-      content: "=children", // The content of every item
-    },
-  })
-);
+// site.use(
+//   feed({
+//     output: ["feed.rss", "feed.json"],
+//     query: "url^=/notes/|/links/ !url$=/notes|/links",
+//     info: {
+//       title: "seth.computer",
+//       description:
+//         "Things I've written, things I've shared, maybe new categories of stuff in the future. Who knows!",
+//       lang: "en",
+//     },
+//     items: {
+//       title: "=title", // The title of every item
+//       description: "=excerpt", // The description of every item
+//       published: "=date", // The publishing date of every item
+//       content: "=children", // The content of every item
+//     },
+//   })
+// );
 
 site.use(
   feed({
