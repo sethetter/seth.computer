@@ -22,7 +22,7 @@ site.ignore("README.md", "netlify.toml", "netlify-build.sh");
 site.use(
   feed({
     output: ["feed.rss", "feed.json"],
-    query: "url^=/notes/|/links/ url!=/notes/|/links/",
+    query: "url^=/notes/|/links/ url!=/notes|/links",
     info: {
       title: "seth.computer",
       description:
