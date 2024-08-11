@@ -1,6 +1,9 @@
 ---
 title: "Asynchronous remote work"
 tags: ["productivity", "teams", "remote"]
+author:
+  name: Seth Etter
+  uri: https://sethetter.com
 layout: "note.tsx"
 ---
 

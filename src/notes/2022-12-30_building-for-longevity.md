@@ -1,6 +1,9 @@
 ---
 title: "Building for longevity"
 tags: ["software", "programming"]
+author:
+  name: Seth Etter
+  uri: https://sethetter.com
 layout: "note.tsx"
 ---
 

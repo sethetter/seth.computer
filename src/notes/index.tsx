@@ -1,4 +1,4 @@
-export const title = "things i've written";
+export const title = "Things I've written";
 export const layout = "layout.tsx";
 
 export default function ({ search }: Lume.Data, helpers: Lume.Helpers) {

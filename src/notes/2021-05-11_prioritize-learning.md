@@ -1,6 +1,9 @@
 ---
 title: "Prioritize learning"
 tags: ["teams", "productivity"]
+author:
+  name: Seth Etter
+  uri: https://sethetter.com
 layout: "note.tsx"
 ---
 

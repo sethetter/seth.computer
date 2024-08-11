@@ -1,6 +1,9 @@
 ---
 title: "How I'm currently writing Haskell"
 tags: ["programming", "haskell", "tools"]
+author:
+  name: Seth Etter
+  uri: https://sethetter.com
 layout: "note.tsx"
 ---
 

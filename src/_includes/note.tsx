@@ -2,13 +2,18 @@ import { PageFn, PostLink } from "$/_types.ts";
 
 export const layout = "layout.tsx";
 
-const render: PageFn = ({ links, date, title, tags, children }, helpers) => {
+const render: PageFn = (
+  { links, date, title, tags, children, author },
+  helpers
+) => {
   return (
     <>
       <h1>{title}</h1>
       <article>
         <section class="header">
           {helpers.date(date, "HUMAN_DATE")}
+          {", "}
+          {author && <Author {...author} />}
           {(links ?? []).map((link: PostLink) => (
             <>
               &nbsp; | &nbsp;
@@ -34,5 +39,21 @@ const render: PageFn = ({ links, date, title, tags, children }, helpers) => {
     </>
   );
 };
+
+interface Author {
+  name: string;
+  uri?: string;
+}
+function Author(author: Author) {
+  if (author.uri) {
+    return (
+      <a href={author.uri} title={`More by ${author.name}`}>
+        {author.name}
+      </a>
+    );
+  } else {
+    return <>{author.name}</>;
+  }
+}
 
 export default render;

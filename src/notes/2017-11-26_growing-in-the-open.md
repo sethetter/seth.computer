@@ -1,5 +1,8 @@
 ---
 title: "Growing in the open"
+author:
+  name: Seth Etter
+  uri: https://sethetter.com
 tags: ["learning", "writing", "personal"]
 layout: "note.tsx"
 ---

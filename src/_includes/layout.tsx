@@ -16,7 +16,7 @@ const navLinks: NavLink[] = [
 export default ({ title, children }: Lume.Data) => (
   <html lang="en">
     <head>
-      <title>seth.computer &mdash; {title}</title>
+      <title>{title} / seth.computer</title>
 
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />

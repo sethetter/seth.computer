@@ -1,5 +1,8 @@
 ---
 title: "Custom GitHub Actions with Docker"
+author:
+  name: Seth Etter
+  uri: https://sethetter.com
 tags: ['programming', "tools"] 
 layout: "note.tsx"
 links: [

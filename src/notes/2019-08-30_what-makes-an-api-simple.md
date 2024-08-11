@@ -1,6 +1,9 @@
 ---
 title: "What makes an API simple?"
 tags: ["programming", "apis", "software"]
+author:
+  name: Seth Etter
+  uri: https://sethetter.com
 layout: "note.tsx"
 ---
 
