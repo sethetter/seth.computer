@@ -52,7 +52,13 @@ cms.collection({
 cms.collection({
   name: "links",
   store: "src:links/*.md",
-  fields: ["title: text", "link: url", "author: text", "tags: list"],
+  fields: [
+    "title: text",
+    "link: url",
+    "author: text",
+    "tags: list",
+    "content: markdown",
+  ],
   nameField: "title",
 });
 
