@@ -28,6 +28,7 @@ cms.storage(
     }),
     owner: "sethetter",
     repo: "seth.computer",
+    path: "src",
   })
 );
 
