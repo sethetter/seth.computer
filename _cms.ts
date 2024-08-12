@@ -1,8 +1,35 @@
 import lumeCMS from "lume/cms/mod.ts";
+import GitHub from "lume/cms/storage/github.ts";
+import { Octokit } from "npm:octokit";
 
-const cms = lumeCMS();
+const ADMIN_USER = {
+  username: Deno.env.get("LUME_CMS_ADMIN_USER") ?? "admin",
+  password: Deno.env.get("LUME_CMS_ADMIN_PASS"),
+};
 
-cms.storage("files", "src");
+if (!ADMIN_USER.password) {
+  throw new Error("Must set LUME_CMS_ADMIN_PASS");
+}
+
+const cms = lumeCMS({
+  auth: {
+    method: "basic",
+    users: {
+      [ADMIN_USER.username]: ADMIN_USER.password,
+    },
+  },
+});
+
+cms.storage(
+  "src",
+  new GitHub({
+    client: new Octokit({
+      auth: Deno.env.get("LUME_CMS_GITHUB_TOKEN"),
+    }),
+    owner: "sethetter",
+    repo: "seth.computer",
+  })
+);
 
 cms.collection({
   name: "notes",
