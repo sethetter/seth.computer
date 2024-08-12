@@ -1,3 +1,4 @@
 .netlify
 _site
 .envrc
+.env
