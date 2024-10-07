@@ -35,6 +35,7 @@ cms.storage(
 cms.collection({
   name: "notes",
   store: "src:notes/*.md",
+  nameField: "title",
   fields: [
     "title: text",
     "draft: checkbox",
@@ -46,12 +47,12 @@ cms.collection({
     "tags: list",
     "content: markdown",
   ],
-  nameField: "title",
 });
 
 cms.collection({
   name: "links",
   store: "src:links/*.md",
+  nameField: "title",
   fields: [
     "title: text",
     "link: url",
@@ -59,7 +60,6 @@ cms.collection({
     "tags: list",
     "content: markdown",
   ],
-  nameField: "title",
 });
 
 export default cms;
